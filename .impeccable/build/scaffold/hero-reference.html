@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Scaffold reference: home-workspace-monochrome.png</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Puritan:wght@700&family=Delius+Unicase:wght@400&display=swap">
+  <link rel="stylesheet" href="layout.css">
+  <style>html,body{margin:0}body{background:#090909}.region{box-sizing:border-box}.region.text p{white-space:pre-wrap}</style>
+</head>
+<body>
+<!-- Reference only. Every region sits at its measured box inside a comp-aspect frame. Take the boxes (layout.css), keep your own semantic structure. -->
+<main class="comp-frame" style="max-width:1672px">
+  <div class="r-brand region text" data-region="brand"><!-- AI Interview wordmark --><p style="font-size:var(--r-brand-font);line-height:1.05;margin:0">brand</p></div>
+  <div class="r-search region control" data-region="search"><!-- global search field: rebuild the control's chrome from the crop (comp-spec.mjs --crop search); its ink box, border, fill, radius, and label size are the comp's --></div>
+  <div class="r-utility-nav region control" data-region="utility-nav"><!-- feedback, help, and profile controls: rebuild the control's chrome from the crop (comp-spec.mjs --crop utility-nav); its ink box, border, fill, radius, and label size are the comp's --></div>
+  <div class="r-side-nav region control" data-region="side-nav"><!-- vertical navigation with small line icons and active practice item: rebuild the control's chrome from the crop (comp-spec.mjs --crop side-nav); its ink box, border, fill, radius, and label size are the comp's --></div>
+  <div class="r-question-meta region text" data-region="question-meta"><!-- interview category and question progress --><p style="font-size:var(--r-question-meta-font);line-height:1.05;margin:0">question-meta</p></div>
+  <div class="r-question-title region text" data-region="question-title"><!-- large interview question heading --><p style="font-size:var(--r-question-title-font);font-family:var(--r-question-title-family),sans-serif;font-weight:var(--r-question-title-weight);line-height:1.05;margin:0">question-title</p></div>
+  <div class="r-question-guidance region text" data-region="question-guidance"><!-- supporting prompt guidance --><p style="font-size:var(--r-question-guidance-font);line-height:1.05;margin:0">question-guidance</p></div>
+  <div class="r-answer-editor region control" data-region="answer-editor"><!-- large bordered multiline answer editor with tabs and word count: rebuild the control's chrome from the crop (comp-spec.mjs --crop answer-editor); its ink box, border, fill, radius, and label size are the comp's --></div>
+  <div class="r-editor-actions region control" data-region="editor-actions"><!-- start practice button, time message, and voice input: rebuild the control's chrome from the crop (comp-spec.mjs --crop editor-actions); its ink box, border, fill, radius, and label size are the comp's --></div>
+  <div class="r-coach-title region text" data-region="coach-title"><!-- Gemini coaching panel title and beta badge --><p style="font-size:var(--r-coach-title-font);line-height:1.05;margin:0">coach-title</p></div>
+  <div class="r-coach-tabs region control" data-region="coach-tabs"><!-- feedback, sample answer, and tips tabs: rebuild the control's chrome from the crop (comp-spec.mjs --crop coach-tabs); its ink box, border, fill, radius, and label size are the comp's --></div>
+  <div class="r-score region text" data-region="score"><!-- overall score with numeric score and scale --><p style="font-size:var(--r-score-font);font-family:var(--r-score-family),sans-serif;font-weight:var(--r-score-weight);line-height:1.05;margin:0">score</p></div>
+  <div class="r-score-meter region chrome" data-region="score-meter"><!-- thin neutral score progress meter --></div>
+  <div class="r-coach-summary region text" data-region="coach-summary"><!-- concise coaching feedback paragraph --><p style="font-size:var(--r-coach-summary-font);line-height:1.05;margin:0">coach-summary</p></div>
+  <div class="r-feedback-list region text" data-region="feedback-list"><!-- strengths, improvements, and suggestions list --><p style="font-size:var(--r-feedback-list-font);line-height:1.05;margin:0">feedback-list</p></div>
+  <div class="r-checklist region text" data-region="checklist"><!-- coaching checklist with square checkmarks --><p style="font-size:var(--r-checklist-font);line-height:1.05;margin:0">checklist</p></div>
+</main>
+</body>
+</html>

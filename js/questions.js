@@ -1,0 +1,230 @@
+/* ===========================
+   Question Bank Data
+   AI Mock Interview Simulator
+   =========================== */
+
+// All interview questions organized by category
+var questionBank = {
+
+    // ---------- HR / General Questions ----------
+    hr: [
+        {
+            id: 1,
+            question: "Tell me about yourself.",
+            difficulty: "easy",
+            modelAnswer: "I am a final year B.Tech student specializing in Computer Science. I have a strong interest in web development and problem-solving. During my academics, I have worked on multiple projects using HTML, CSS, JavaScript, and Python. I enjoy learning new technologies and applying them to real-world problems. In my free time, I participate in coding competitions and contribute to open-source projects.",
+            tips: "Keep it concise (1-2 minutes). Follow the Present-Past-Future formula: what you do now, relevant background, and where you're headed."
+        },
+        {
+            id: 2,
+            question: "What are your strengths and weaknesses?",
+            difficulty: "easy",
+            modelAnswer: "My key strengths include strong analytical thinking, the ability to learn quickly, and good teamwork skills. I am also very organized and manage my time well. As for weaknesses, I sometimes tend to overthink problems before starting, but I have been working on this by setting time limits for planning and jumping into implementation sooner.",
+            tips: "Be honest but strategic. For weaknesses, always mention what you're doing to improve. Avoid cliché answers like 'I'm a perfectionist.'"
+        },
+        {
+            id: 3,
+            question: "Why do you want to work at our company?",
+            difficulty: "medium",
+            modelAnswer: "I admire your company's commitment to innovation and the positive impact your products have on users. I have followed your recent projects in AI and cloud computing, and I believe my skills in software development align well with your team's goals. I am excited about the opportunity to grow professionally while contributing to meaningful projects.",
+            tips: "Research the company beforehand. Mention specific products, values, or recent news. Show genuine interest and how you can contribute."
+        },
+        {
+            id: 4,
+            question: "Where do you see yourself in 5 years?",
+            difficulty: "medium",
+            modelAnswer: "In five years, I see myself as a proficient software engineer with deep expertise in full-stack development. I aim to take on leadership responsibilities, mentor junior developers, and contribute to architectural decisions. I also plan to stay updated with emerging technologies and possibly pursue advanced certifications.",
+            tips: "Show ambition but be realistic. Align your goals with what the company can offer. Avoid saying 'I want your job' or overly generic answers."
+        },
+        {
+            id: 5,
+            question: "How do you handle pressure and stressful situations?",
+            difficulty: "medium",
+            modelAnswer: "I handle pressure by breaking down complex tasks into smaller, manageable steps and prioritizing them. During my final year project, we faced a tight deadline, and I created a detailed plan, delegated tasks effectively, and maintained clear communication with my team. This approach helped us deliver the project on time without compromising quality.",
+            tips: "Use the STAR method (Situation, Task, Action, Result). Give a specific example from your experience to make your answer credible."
+        },
+        {
+            id: 6,
+            question: "Why should we hire you?",
+            difficulty: "hard",
+            modelAnswer: "You should hire me because I bring a combination of strong technical skills, eagerness to learn, and a collaborative mindset. My project experience in web development and my ability to quickly adapt to new technologies make me a valuable addition to your team. I am committed to delivering high-quality work and continuously improving myself.",
+            tips: "Summarize your unique value proposition. Connect your skills directly to the job requirements. Be confident but not arrogant."
+        },
+        {
+            id: 7,
+            question: "Tell me about a time you worked in a team.",
+            difficulty: "easy",
+            modelAnswer: "During our PBL project in college, I worked in a team of four to build a web application. I was responsible for the frontend development while others handled the backend and database. We used regular meetings and version control (Git) to stay coordinated. When we had disagreements on the UI design, I facilitated a discussion where everyone shared their ideas, and we voted on the best approach.",
+            tips: "Highlight your role, how you collaborated, and the outcome. Mention any challenges you overcame as a team."
+        },
+        {
+            id: 8,
+            question: "What motivates you?",
+            difficulty: "easy",
+            modelAnswer: "I am motivated by the opportunity to solve challenging problems and create solutions that make a real difference. Seeing the impact of my work, whether it's a website that users find intuitive or a program that automates a tedious task, gives me great satisfaction. I also find motivation in continuous learning and staying current with new technologies.",
+            tips: "Be genuine. Connect your motivation to the role you're applying for. Avoid purely monetary motivations in your answer."
+        },
+        {
+            id: 9,
+            question: "Describe a challenging situation you faced and how you overcame it.",
+            difficulty: "hard",
+            modelAnswer: "During my internship, I was assigned to fix a critical bug in production that was causing data inconsistency. I systematically debugged the issue by reviewing logs, reproducing the problem in a test environment, and tracing the code flow. I discovered a race condition in the database queries. I implemented proper transaction handling and added unit tests to prevent future occurrences. The fix was deployed within 24 hours.",
+            tips: "Use the STAR method. Focus on your problem-solving process. Emphasize what you learned from the experience."
+        },
+        {
+            id: 10,
+            question: "Do you have any questions for us?",
+            difficulty: "easy",
+            modelAnswer: "Yes, I would like to know: 1) What does a typical day look like for someone in this role? 2) What technologies does your team currently use? 3) How does the company support professional development and learning? 4) What are the biggest challenges the team is currently facing?",
+            tips: "Always have 2-3 questions prepared. Ask about team culture, growth opportunities, or current projects. Avoid asking about salary in the first interview."
+        }
+    ],
+
+    // ---------- Technical (Web Development) Questions ----------
+    technical: [
+        {
+            id: 11,
+            question: "What is HTML and why is it important for web development?",
+            difficulty: "easy",
+            modelAnswer: "HTML (HyperText Markup Language) is the standard markup language used to create the structure of web pages. It defines the content and layout using elements like headings, paragraphs, links, images, and forms. HTML is the backbone of every website — without it, web browsers would not know how to display content. It works alongside CSS for styling and JavaScript for interactivity.",
+            tips: "Explain the acronym, its purpose, and how it fits with CSS and JS. Mention semantic HTML elements for bonus points."
+        },
+        {
+            id: 12,
+            question: "Explain the CSS Box Model.",
+            difficulty: "medium",
+            modelAnswer: "The CSS Box Model describes how every HTML element is rendered as a rectangular box. It consists of four parts from inside to outside: 1) Content - the actual text or image, 2) Padding - space between the content and border, 3) Border - the edge around the padding, 4) Margin - space outside the border that separates the element from others. Understanding the box model is crucial for controlling layout and spacing in web design.",
+            tips: "Draw or visualize the box model. Mention the difference between box-sizing: content-box and border-box."
+        },
+        {
+            id: 13,
+            question: "What is the difference between var, let, and const in JavaScript?",
+            difficulty: "medium",
+            modelAnswer: "var is function-scoped and can be re-declared and updated. It is hoisted to the top of its scope. let is block-scoped, can be updated but not re-declared in the same scope. const is also block-scoped but cannot be updated or re-declared — it must be initialized at declaration. Modern JavaScript recommends using const by default and let when you need to reassign values, while avoiding var.",
+            tips: "Give examples of each. Explain scope differences and hoisting behavior. Mention best practices for when to use each."
+        },
+        {
+            id: 14,
+            question: "What is responsive web design?",
+            difficulty: "easy",
+            modelAnswer: "Responsive web design is an approach to web development where a website's layout adapts to different screen sizes and devices (desktop, tablet, mobile). It is achieved using flexible grids, flexible images, and CSS media queries. The goal is to provide an optimal viewing experience across all devices without creating separate versions of the website.",
+            tips: "Mention media queries, flexible layouts (flexbox/grid), and the viewport meta tag. Give examples of responsive techniques you have used."
+        },
+        {
+            id: 15,
+            question: "Explain the difference between == and === in JavaScript.",
+            difficulty: "easy",
+            modelAnswer: "The == operator (loose equality) compares two values for equality after performing type coercion, meaning it converts the operands to the same type before comparing. For example, '5' == 5 returns true. The === operator (strict equality) compares both value and type without type coercion. So '5' === 5 returns false because string and number are different types. It is recommended to use === to avoid unexpected behavior.",
+            tips: "Provide clear examples with different data types. Explain why strict equality is preferred in production code."
+        },
+        {
+            id: 16,
+            question: "What are semantic HTML elements? Give examples.",
+            difficulty: "medium",
+            modelAnswer: "Semantic HTML elements clearly describe their meaning to both the browser and the developer. Unlike div and span (which are non-semantic), semantic elements convey the purpose of the content. Examples include: <header> for page headers, <nav> for navigation, <main> for primary content, <article> for self-contained content, <section> for thematic grouping, <footer> for footers, and <aside> for sidebar content. Using semantic HTML improves accessibility, SEO, and code readability.",
+            tips: "Explain the difference between semantic and non-semantic tags. Mention the benefits for SEO and accessibility."
+        },
+        {
+            id: 17,
+            question: "What is the DOM in JavaScript?",
+            difficulty: "medium",
+            modelAnswer: "The DOM (Document Object Model) is a programming interface that represents the HTML document as a tree structure of objects. Each HTML element becomes a node in this tree. JavaScript can interact with the DOM to dynamically change the content, structure, and style of a web page. Common DOM methods include getElementById(), querySelector(), createElement(), and addEventListener(). The DOM is what makes web pages interactive.",
+            tips: "Explain the tree structure. Give examples of DOM manipulation methods. Mention how events work with the DOM."
+        },
+        {
+            id: 18,
+            question: "What is the difference between inline, block, and inline-block elements in CSS?",
+            difficulty: "medium",
+            modelAnswer: "Block elements (like div, p, h1) take up the full width available and start on a new line. Inline elements (like span, a, strong) only take up as much width as their content and do not start on a new line — you cannot set width/height on them. Inline-block elements combine both behaviors: they flow inline like inline elements but allow setting width, height, padding, and margin like block elements.",
+            tips: "Give specific HTML tag examples for each type. Explain when you would use inline-block in practice."
+        },
+        {
+            id: 19,
+            question: "Explain how localStorage works in JavaScript.",
+            difficulty: "hard",
+            modelAnswer: "localStorage is a Web Storage API that allows you to store key-value pairs in the browser with no expiration date. Data persists even after the browser is closed. It stores data as strings, so objects need to be converted using JSON.stringify() when saving and JSON.parse() when retrieving. Common methods include setItem(key, value), getItem(key), removeItem(key), and clear(). localStorage has a storage limit of about 5-10 MB per origin.",
+            tips: "Mention the difference between localStorage and sessionStorage. Explain the need for JSON.stringify/parse for complex data."
+        },
+        {
+            id: 20,
+            question: "What is CSS Flexbox and when would you use it?",
+            difficulty: "hard",
+            modelAnswer: "CSS Flexbox (Flexible Box Layout) is a one-dimensional layout model that makes it easy to align and distribute space among items in a container. You enable it by setting display: flex on the parent container. Key properties include flex-direction (row/column), justify-content (alignment along main axis), align-items (alignment along cross axis), and flex-wrap. Flexbox is ideal for navigation bars, card layouts, centering elements, and creating responsive designs.",
+            tips: "Explain the concept of main axis and cross axis. Mention specific use cases where Flexbox simplifies the layout."
+        }
+    ],
+
+    // ---------- Behavioral Questions ----------
+    behavioral: [
+        {
+            id: 21,
+            question: "Tell me about a time you had to learn something new quickly.",
+            difficulty: "easy",
+            modelAnswer: "During a hackathon, our team decided to use React.js for the frontend, which I had never used before. I spent the first few hours going through documentation and tutorials, then started implementing basic components. I broke down the learning into small tasks — understanding JSX, components, props, and state. By the end of the 24-hour hackathon, I had built a functional user interface. This experience taught me that structured self-learning with immediate application is the fastest way to pick up new skills.",
+            tips: "Show your learning process and adaptability. Emphasize the result and what you learned about your own learning style."
+        },
+        {
+            id: 22,
+            question: "Describe a situation where you disagreed with a team member.",
+            difficulty: "medium",
+            modelAnswer: "In a group project, my teammate wanted to use a NoSQL database while I preferred SQL for our structured data. Instead of arguing, I suggested we both present our reasoning with pros and cons. After discussing factors like data structure, query requirements, and team familiarity, we agreed that SQL was more appropriate for our use case. I learned that backing opinions with facts and being open to discussion leads to better decisions.",
+            tips: "Focus on respectful communication and resolution. Show that you can disagree professionally and reach a consensus."
+        },
+        {
+            id: 23,
+            question: "How do you prioritize tasks when you have multiple deadlines?",
+            difficulty: "medium",
+            modelAnswer: "I use a combination of urgency and importance to prioritize tasks. First, I list all tasks and their deadlines. Then I categorize them: urgent and important tasks come first, followed by important but not urgent ones. I use tools like to-do lists and calendar reminders to stay organized. During exams, I apply this by creating a study schedule that allocates more time to difficult subjects while ensuring all subjects are covered before their exam dates.",
+            tips: "Mention a specific framework (like Eisenhower Matrix) if you use one. Give a real example with concrete results."
+        },
+        {
+            id: 24,
+            question: "Tell me about a project you are most proud of.",
+            difficulty: "easy",
+            modelAnswer: "I am most proud of the AI Mock Interview Simulator I built as part of my PBL project. It is a web-based application that helps students practice interview questions across different categories like HR, Technical, and Behavioral. I designed the entire frontend using HTML, CSS, and JavaScript, implemented features like timed responses, self-assessment ratings, and model answers. It was rewarding because it solved a real problem — helping students prepare for placements.",
+            tips: "Choose a project relevant to the role. Explain your specific contributions, challenges overcome, and the impact of the project."
+        },
+        {
+            id: 25,
+            question: "How do you handle constructive criticism?",
+            difficulty: "medium",
+            modelAnswer: "I view constructive criticism as an opportunity to grow. When a professor pointed out that my code lacked proper comments and documentation, I initially felt defensive but then realized it was valid feedback. I spent time learning documentation best practices and started adding meaningful comments to all my code. Now, I actively seek feedback from peers during code reviews. I believe that accepting and acting on criticism is essential for professional development.",
+            tips: "Show maturity and growth mindset. Give a specific example of how you improved based on feedback received."
+        },
+        {
+            id: 26,
+            question: "Describe a time when you had to meet a tight deadline.",
+            difficulty: "hard",
+            modelAnswer: "Our team had to submit a project prototype one week earlier than planned due to a schedule change. I immediately created a revised timeline, identified the minimum viable features, and delegated tasks based on each member's strengths. I worked extra hours, focused on core functionality first, and communicated daily progress updates. We delivered a working prototype on time. This experience taught me the importance of agile planning and clear communication under pressure.",
+            tips: "Use the STAR method. Emphasize your planning, execution, and what you learned. Mention the successful outcome."
+        },
+        {
+            id: 27,
+            question: "How do you stay updated with new technologies?",
+            difficulty: "easy",
+            modelAnswer: "I follow several tech blogs and YouTube channels like Traversy Media and Fireship for web development updates. I regularly browse GitHub Trending to discover new projects and tools. I also participate in online communities on Reddit and Stack Overflow. Additionally, I take online courses on platforms like Coursera and freeCodeCamp to learn new frameworks. I believe consistent, daily learning — even 30 minutes — compounds into significant knowledge over time.",
+            tips: "Mention specific resources you actually use. Show that learning is a habit, not just something you do before interviews."
+        },
+        {
+            id: 28,
+            question: "Tell me about a time you failed and what you learned from it.",
+            difficulty: "hard",
+            modelAnswer: "In my third semester, I underestimated the complexity of a database project and started coding without proper planning. I ended up with a poorly designed schema that caused performance issues. I had to restructure the entire database midway through the project, which cost me several days. From this experience, I learned the importance of proper planning and design before implementation. Now, I always spend adequate time on architecture and design before writing code.",
+            tips: "Be honest about the failure. Focus more on the lesson learned and how it changed your approach. Show growth and self-awareness."
+        },
+        {
+            id: 29,
+            question: "How do you ensure quality in your work?",
+            difficulty: "medium",
+            modelAnswer: "I ensure quality through a multi-step approach: First, I plan and design before coding. Second, I write clean, well-commented code following consistent naming conventions. Third, I test my code thoroughly — both manually and with test cases. Fourth, I seek peer reviews to catch issues I might have missed. Finally, I iterate based on feedback. For web projects, I also test across different browsers and devices to ensure compatibility.",
+            tips: "Mention specific practices like code reviews, testing, and documentation. Show that quality is a habit, not an afterthought."
+        },
+        {
+            id: 30,
+            question: "Where do you see the future of web development heading?",
+            difficulty: "hard",
+            modelAnswer: "I believe web development is moving towards more AI-integrated experiences, with tools like AI code assistants becoming standard. WebAssembly will enable more complex applications to run in browsers. Progressive Web Apps (PWAs) will continue to blur the line between web and native apps. Frameworks will become more efficient with features like server-side rendering and edge computing. I also see low-code/no-code platforms growing, but skilled developers will always be needed for complex, custom solutions.",
+            tips: "Show awareness of current trends. Back your predictions with reasoning. Mention technologies you are personally excited about."
+        }
+    ]
+};

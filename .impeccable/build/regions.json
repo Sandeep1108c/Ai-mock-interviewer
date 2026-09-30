@@ -1,0 +1,20 @@
+{
+  "regions": [
+    {"id":"brand","kind":"text","grid":"A0:B0","note":"AI Interview wordmark"},
+    {"id":"search","kind":"control","grid":"D0:F0","note":"global search field"},
+    {"id":"utility-nav","kind":"control","grid":"H0:J0","note":"feedback, help, and profile controls"},
+    {"id":"side-nav","kind":"control","grid":"A1:B4","note":"vertical navigation with small line icons and active practice item"},
+    {"id":"question-meta","kind":"text","grid":"C1:G1","note":"interview category and question progress"},
+    {"id":"question-title","kind":"text","grid":"C1:G2","note":"large interview question heading"},
+    {"id":"question-guidance","kind":"text","grid":"C2:G3","note":"supporting prompt guidance"},
+    {"id":"answer-editor","kind":"control","grid":"C3:G8","note":"large bordered multiline answer editor with tabs and word count"},
+    {"id":"editor-actions","kind":"control","grid":"C9:G9","note":"start practice button, time message, and voice input"},
+    {"id":"coach-title","kind":"text","grid":"H1:J1","note":"Gemini coaching panel title and beta badge"},
+    {"id":"coach-tabs","kind":"control","grid":"H1:J1","note":"feedback, sample answer, and tips tabs"},
+    {"id":"score","kind":"text","grid":"H2:J2","note":"overall score with numeric score and scale"},
+    {"id":"score-meter","kind":"chrome","grid":"H3:J3","note":"thin neutral score progress meter"},
+    {"id":"coach-summary","kind":"text","grid":"H3:J4","note":"concise coaching feedback paragraph"},
+    {"id":"feedback-list","kind":"text","grid":"H4:J6","note":"strengths, improvements, and suggestions list"},
+    {"id":"checklist","kind":"text","grid":"H7:J9","note":"coaching checklist with square checkmarks"}
+  ]
+}

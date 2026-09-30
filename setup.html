@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Set up your mock interview session.">
+    <title>Interview Setup - AI Mock Interview Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">AI <span>Interview</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="setup.html" class="active">Practice</a></li>
+            <li><a href="history.html">History</a></li>
+            <li id="authNavContainer"><a href="login.html" class="btn-nav-auth">Sign In</a></li>
+        </ul>
+    </nav>
+
+    <!-- Setup Form -->
+    <div class="setup-container">
+        <div class="setup-card">
+            <h2>Interview Setup</h2>
+            <p class="subtitle">Configure your mock interview session</p>
+
+            <form id="setupForm">
+                <!-- Category Selection -->
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="" disabled selected>Select category</option>
+                        <option value="hr">HR / General</option>
+                        <option value="technical">Technical (Web Development)</option>
+                        <option value="behavioral">Behavioral</option>
+                        <option value="all">All Categories (Mixed)</option>
+                    </select>
+                </div>
+
+                <!-- Difficulty Selection -->
+                <div class="form-group">
+                    <label for="difficulty">Difficulty Level</label>
+                    <select id="difficulty" required>
+                        <option value="" disabled selected>Select difficulty</option>
+                        <option value="all">All Levels</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+
+                <!-- Number of Questions -->
+                <div class="form-group">
+                    <label for="numQuestions">Number of Questions</label>
+                    <select id="numQuestions" required>
+                        <option value="5" selected>5 Questions</option>
+                        <option value="10">10 Questions</option>
+                        <option value="15">15 Questions</option>
+                    </select>
+                </div>
+
+                <!-- Time Per Question -->
+                <div class="form-group">
+                    <label for="timeLimit">Time Limit Per Question</label>
+                    <select id="timeLimit" required>
+                        <option value="60">60 seconds</option>
+                        <option value="90">90 seconds</option>
+                        <option value="120" selected>120 seconds (Recommended)</option>
+                        <option value="180">180 seconds</option>
+                        <option value="0">No Time Limit</option>
+                    </select>
+                </div>
+
+                <!-- Candidate Name -->
+                <div class="form-group">
+                    <label for="candidateName">Candidate Name (Optional)</label>
+                    <input type="text" id="candidateName" placeholder="Enter your name">
+                </div>
+
+                <!-- Start Button -->
+                <button type="submit" class="btn btn-primary" id="startBtn" style="width: 100%; margin-top: 10px;">
+                    Start Interview →
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>AI Interview · PBL Web Technologies Project</p>
+    </footer>
+
+    <script src="js/questions.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>

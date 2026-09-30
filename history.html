@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View past interview sessions, questions, self-ratings, and Gemini AI evaluations.">
+    <title>Interview History - AI Mock Interview Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">AI <span>Interview</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="setup.html">Practice</a></li>
+            <li><a href="history.html" class="active">History</a></li>
+            <li id="authNavContainer"><a href="login.html" class="btn-nav-auth">Sign In</a></li>
+        </ul>
+    </nav>
+
+    <!-- History Container -->
+    <div class="history-container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; flex-wrap: wrap; gap: 15px;">
+            <div>
+                <h2>Session History</h2>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                    Completed interviews saved to MySQL database with Gemini AI evaluations.
+                </p>
+            </div>
+            <a href="setup.html" class="btn btn-primary" style="width: auto;">New Interview →</a>
+        </div>
+
+        <!-- History Sessions List -->
+        <div id="historyListContainer">
+            <div style="text-align: center; padding: 40px; color: var(--text-muted); font-family: var(--font-mono); font-size: 0.88rem;">
+                Loading past sessions from database...
+            </div>
+        </div>
+    </div>
+
+    <!-- Session Details Modal -->
+    <div class="details-modal" id="detailsModal">
+        <div class="modal-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 15px;">
+                <h3 id="modalTitle">Session Details</h3>
+                <button type="button" onclick="closeDetailsModal()" style="background: none; border: none; font-size: 1.3rem; cursor: pointer; color: var(--text-muted);">&times;</button>
+            </div>
+            <div id="modalBody">
+                <!-- Injected dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>AI Interview · PBL Web Technologies Project</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>
