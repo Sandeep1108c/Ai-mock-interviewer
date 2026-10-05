@@ -185,6 +185,24 @@ function handleLogout() {
  * Initialize setup page
  */
 function initSetupPage() {
+    // Support URL parameters for seamless continuation (e.g., setup.html?category=technical&batch=2)
+    var urlParams = new URLSearchParams(window.location.search);
+    var catParam = urlParams.get('category');
+    var batchParam = urlParams.get('batch');
+    var diffParam = urlParams.get('difficulty');
+    if (catParam) {
+        var catElem = document.getElementById('category');
+        if (catElem) catElem.value = catParam;
+    }
+    if (diffParam) {
+        var diffElem = document.getElementById('difficulty');
+        if (diffElem) diffElem.value = diffParam;
+    }
+    if (batchParam) {
+        var batchElem = document.getElementById('questionBatch');
+        if (batchElem) batchElem.value = batchParam;
+    }
+
     var form = document.getElementById('setupForm');
     if (form) {
         form.addEventListener('submit', function(e) {
@@ -200,7 +218,8 @@ function initSetupPage() {
 function startInterview() {
     var category = document.getElementById('category').value;
     var difficulty = document.getElementById('difficulty').value;
-    var numQuestions = parseInt(document.getElementById('numQuestions').value);
+    var batchElem = document.getElementById('questionBatch');
+    var batchVal = batchElem ? batchElem.value : '1';
     var timeLimitVal = parseInt(document.getElementById('timeLimit').value);
     var candidateName = document.getElementById('candidateName').value.trim();
     var startBtn = document.getElementById('startBtn');
@@ -214,13 +233,38 @@ function startInterview() {
         candidateName = currentUser.full_name || currentUser.username;
     }
 
+    var batchNum = parseInt(batchVal);
+    var numQuestions = 30;
+    var order = 'sequential';
+    var batch = null;
+
+    if (!isNaN(batchNum) && batchNum >= 1 && batchNum <= 4) {
+        batch = batchNum;
+        numQuestions = 30;
+        order = 'sequential';
+    } else if (batchVal === 'quick_5') {
+        numQuestions = 5;
+        order = 'random';
+    } else if (batchVal === 'quick_10') {
+        numQuestions = 10;
+        order = 'random';
+    } else if (batchVal === 'random_30') {
+        numQuestions = 30;
+        order = 'random';
+    }
+
     startBtn.disabled = true;
     startBtn.textContent = 'Loading questions from database...';
 
     // Fetch dynamic questions from MySQL backend
     var apiUrl = 'api/get_questions.php?category=' + encodeURIComponent(category) +
                  '&difficulty=' + encodeURIComponent(difficulty) +
-                 '&limit=' + encodeURIComponent(numQuestions);
+                 '&limit=' + encodeURIComponent(numQuestions) +
+                 '&order=' + encodeURIComponent(order);
+
+    if (batch !== null) {
+        apiUrl += '&batch=' + encodeURIComponent(batch);
+    }
 
     fetch(apiUrl)
         .then(function(res) { return res.json(); })
@@ -233,23 +277,23 @@ function startInterview() {
                 questions = getFilteredQuestions(category, difficulty);
                 questions = shuffleArray(questions).slice(0, numQuestions);
             }
-            proceedToInterview(category, difficulty, timeLimitVal, candidateName, questions);
+            proceedToInterview(category, difficulty, timeLimitVal, candidateName, questions, batch, batchVal);
         })
         .catch(function(err) {
             console.log('Backend unreachable, using local question bank fallback:', err);
             var questions = getFilteredQuestions(category, difficulty);
             questions = shuffleArray(questions).slice(0, numQuestions);
-            proceedToInterview(category, difficulty, timeLimitVal, candidateName, questions);
+            proceedToInterview(category, difficulty, timeLimitVal, candidateName, questions, batch, batchVal);
         });
 }
 
-function proceedToInterview(category, difficulty, timeLimitVal, candidateName, questions) {
+function proceedToInterview(category, difficulty, timeLimitVal, candidateName, questions, batch, batchVal) {
     if (!questions || questions.length === 0) {
         alert('No questions found for the selected criteria. Please try different settings.');
         var startBtn = document.getElementById('startBtn');
         if (startBtn) {
             startBtn.disabled = false;
-            startBtn.textContent = 'Start Interview';
+            startBtn.textContent = 'Start Interview →';
         }
         return;
     }
@@ -260,6 +304,8 @@ function proceedToInterview(category, difficulty, timeLimitVal, candidateName, q
         numQuestions: questions.length,
         timeLimit: timeLimitVal,
         candidateName: candidateName,
+        batch: batch,
+        batchVal: batchVal,
         questions: questions,
         startTime: new Date().toISOString()
     };
@@ -375,8 +421,12 @@ function showQuestion(index) {
     isAnswerSubmitted = false;
     var q = selectedQuestions[index];
 
-    document.getElementById('questionCounter').textContent = 
-        'Question ' + (index + 1) + ' of ' + selectedQuestions.length;
+    var settings = JSON.parse(localStorage.getItem('interviewSettings') || '{}');
+    var counterText = 'Question ' + (index + 1) + ' of ' + selectedQuestions.length;
+    if (settings.batch) {
+        counterText = 'Set ' + settings.batch + ' · ' + counterText;
+    }
+    document.getElementById('questionCounter').textContent = counterText;
 
     var progress = ((index) / selectedQuestions.length) * 100;
     document.getElementById('progressFill').style.width = progress + '%';
@@ -583,6 +633,8 @@ function finishInterview() {
         candidateName: settings.candidateName,
         category: settings.category,
         difficulty: settings.difficulty,
+        batch: settings.batch,
+        batchVal: settings.batchVal,
         totalQuestions: selectedQuestions.length,
         answers: userAnswers,
         endTime: new Date().toISOString(),
@@ -625,8 +677,11 @@ function initResultsPage() {
 
 function displayResults(results) {
     var greeting = document.getElementById('candidateGreeting');
+    var batchText = results.batch ? (' · Set ' + results.batch + ' (30 Questions)') : '';
     if (results.candidateName) {
-        greeting.textContent = 'Great effort, ' + escapeHtml(results.candidateName) + '! Here\'s your complete performance and Gemini AI review.';
+        greeting.textContent = 'Great effort, ' + escapeHtml(results.candidateName) + '!' + batchText + ' Here\'s your performance and Gemini AI review.';
+    } else if (results.batch) {
+        greeting.textContent = 'Performance Summary' + batchText;
     }
 
     var answered = 0;
@@ -708,7 +763,7 @@ function displayResults(results) {
                     '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">' +
                         '<strong style="color: var(--text);">Gemini AI Evaluation: ' + answer.aiScore + '/10 (' + escapeHtml(answer.aiLabel || '') + ')</strong>' +
                     '</div>' +
-                    '<p style="font-size: 0.92rem; color: #2d3436; margin-bottom: 6px;">' + escapeHtml(answer.aiFeedback || '') + '</p>' +
+                    '<p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 6px;">' + escapeHtml(answer.aiFeedback || '') + '</p>' +
                     (answer.aiStrengths ? '<div style="font-size: 0.85rem; color: var(--text);"><strong>Strengths:</strong> ' + escapeHtml(answer.aiStrengths) + '</div>' : '') +
                     (answer.aiImprovements ? '<div style="font-size: 0.85rem; color: var(--text-muted);"><strong>To Improve:</strong> ' + escapeHtml(answer.aiImprovements) + '</div>' : '') +
                 '</div>';
@@ -727,6 +782,25 @@ function displayResults(results) {
             aiFeedbackHTML;
 
         reviewList.appendChild(reviewItem);
+    }
+
+    // Dynamic progression button if user practiced a batch
+    var actionRow = document.querySelector('.action-row');
+    if (actionRow && results.batch) {
+        var currentBatch = parseInt(results.batch);
+        var nextBatch = currentBatch < 4 ? (currentBatch + 1) : 1;
+        var nextBatchText = currentBatch < 4 
+            ? ('Practice Next 30 Questions (Set ' + nextBatch + ') →') 
+            : 'Restart From Set 1 (Questions 1 - 30) →';
+        var nextUrl = 'setup.html?category=' + encodeURIComponent(results.category || 'all') + 
+                      '&difficulty=' + encodeURIComponent(results.difficulty || 'all') + 
+                      '&batch=' + nextBatch;
+
+        actionRow.innerHTML = 
+            '<a href="' + nextUrl + '" class="btn btn-primary" style="width: auto;">' + nextBatchText + '</a>' +
+            '<a href="setup.html" class="btn btn-secondary" style="width: auto;">Practice Setup</a>' +
+            '<a href="history.html" class="btn btn-secondary" style="width: auto;">View Past History</a>' +
+            '<a href="index.html" class="btn btn-secondary">Return Home</a>';
     }
 }
 
@@ -805,7 +879,7 @@ function viewSessionDetails(sessionId) {
         .then(function(res) { return res.json(); })
         .then(function(data) {
             if (!data.success || !data.session) {
-                modalBody.innerHTML = '<p style="color:red;">Session not found.</p>';
+                modalBody.innerHTML = '<p style="color:var(--text-muted); font-family:var(--font-mono);">Session not found.</p>';
                 return;
             }
 
@@ -843,7 +917,7 @@ function viewSessionDetails(sessionId) {
             modalBody.innerHTML = html;
         })
         .catch(function(err) {
-            modalBody.innerHTML = '<p style="color:red;">Error loading session details.</p>';
+            modalBody.innerHTML = '<p style="color:var(--text-muted); font-family:var(--font-mono);">Error loading session details.</p>';
         });
 }
 

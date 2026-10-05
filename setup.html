@@ -51,13 +51,17 @@
                     </select>
                 </div>
 
-                <!-- Number of Questions -->
+                <!-- Question Set / Batch -->
                 <div class="form-group">
-                    <label for="numQuestions">Number of Questions</label>
-                    <select id="numQuestions" required>
-                        <option value="5" selected>5 Questions</option>
-                        <option value="10">10 Questions</option>
-                        <option value="15">15 Questions</option>
+                    <label for="questionBatch">Question Set (30 Questions / Batch)</label>
+                    <select id="questionBatch" required>
+                        <option value="1" selected>Set 1: First 30 Questions (Questions 1 - 30)</option>
+                        <option value="2">Set 2: Next 30 Questions (Questions 31 - 60)</option>
+                        <option value="3">Set 3: Next 30 Questions (Questions 61 - 90)</option>
+                        <option value="4">Set 4: Remaining Questions (Questions 91 - 100)</option>
+                        <option value="quick_5">Quick Practice (5 Questions)</option>
+                        <option value="quick_10">Short Practice (10 Questions)</option>
+                        <option value="random_30">Random 30 Questions</option>
                     </select>
                 </div>
 
