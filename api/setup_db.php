@@ -4,6 +4,7 @@
 
 require_once __DIR__ . '/config.php';
 
+try {
     // Connect to database (supports both pre-created shared host databases and local auto-creation)
     $port = defined('DB_PORT') ? DB_PORT : 3306;
     $pdo = null;
