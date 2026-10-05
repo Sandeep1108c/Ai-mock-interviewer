@@ -3,3 +3,4 @@ api/config.local.php
 *.log
 Thumbs.db
 .DS_Store
+pbl_infinityfree_deploy.zip
