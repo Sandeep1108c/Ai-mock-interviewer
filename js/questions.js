@@ -1,230 +1,2113 @@
 /* ===========================
-   Question Bank Data
+   Question Bank Data (300 Questions)
    AI Mock Interview Simulator
    =========================== */
 
-// All interview questions organized by category
 var questionBank = {
-
-    // ---------- HR / General Questions ----------
-    hr: [
-        {
-            id: 1,
-            question: "Tell me about yourself.",
-            difficulty: "easy",
-            modelAnswer: "I am a final year B.Tech student specializing in Computer Science. I have a strong interest in web development and problem-solving. During my academics, I have worked on multiple projects using HTML, CSS, JavaScript, and Python. I enjoy learning new technologies and applying them to real-world problems. In my free time, I participate in coding competitions and contribute to open-source projects.",
-            tips: "Keep it concise (1-2 minutes). Follow the Present-Past-Future formula: what you do now, relevant background, and where you're headed."
-        },
-        {
-            id: 2,
-            question: "What are your strengths and weaknesses?",
-            difficulty: "easy",
-            modelAnswer: "My key strengths include strong analytical thinking, the ability to learn quickly, and good teamwork skills. I am also very organized and manage my time well. As for weaknesses, I sometimes tend to overthink problems before starting, but I have been working on this by setting time limits for planning and jumping into implementation sooner.",
-            tips: "Be honest but strategic. For weaknesses, always mention what you're doing to improve. Avoid cliché answers like 'I'm a perfectionist.'"
-        },
-        {
-            id: 3,
-            question: "Why do you want to work at our company?",
-            difficulty: "medium",
-            modelAnswer: "I admire your company's commitment to innovation and the positive impact your products have on users. I have followed your recent projects in AI and cloud computing, and I believe my skills in software development align well with your team's goals. I am excited about the opportunity to grow professionally while contributing to meaningful projects.",
-            tips: "Research the company beforehand. Mention specific products, values, or recent news. Show genuine interest and how you can contribute."
-        },
-        {
-            id: 4,
-            question: "Where do you see yourself in 5 years?",
-            difficulty: "medium",
-            modelAnswer: "In five years, I see myself as a proficient software engineer with deep expertise in full-stack development. I aim to take on leadership responsibilities, mentor junior developers, and contribute to architectural decisions. I also plan to stay updated with emerging technologies and possibly pursue advanced certifications.",
-            tips: "Show ambition but be realistic. Align your goals with what the company can offer. Avoid saying 'I want your job' or overly generic answers."
-        },
-        {
-            id: 5,
-            question: "How do you handle pressure and stressful situations?",
-            difficulty: "medium",
-            modelAnswer: "I handle pressure by breaking down complex tasks into smaller, manageable steps and prioritizing them. During my final year project, we faced a tight deadline, and I created a detailed plan, delegated tasks effectively, and maintained clear communication with my team. This approach helped us deliver the project on time without compromising quality.",
-            tips: "Use the STAR method (Situation, Task, Action, Result). Give a specific example from your experience to make your answer credible."
-        },
-        {
-            id: 6,
-            question: "Why should we hire you?",
-            difficulty: "hard",
-            modelAnswer: "You should hire me because I bring a combination of strong technical skills, eagerness to learn, and a collaborative mindset. My project experience in web development and my ability to quickly adapt to new technologies make me a valuable addition to your team. I am committed to delivering high-quality work and continuously improving myself.",
-            tips: "Summarize your unique value proposition. Connect your skills directly to the job requirements. Be confident but not arrogant."
-        },
-        {
-            id: 7,
-            question: "Tell me about a time you worked in a team.",
-            difficulty: "easy",
-            modelAnswer: "During our PBL project in college, I worked in a team of four to build a web application. I was responsible for the frontend development while others handled the backend and database. We used regular meetings and version control (Git) to stay coordinated. When we had disagreements on the UI design, I facilitated a discussion where everyone shared their ideas, and we voted on the best approach.",
-            tips: "Highlight your role, how you collaborated, and the outcome. Mention any challenges you overcame as a team."
-        },
-        {
-            id: 8,
-            question: "What motivates you?",
-            difficulty: "easy",
-            modelAnswer: "I am motivated by the opportunity to solve challenging problems and create solutions that make a real difference. Seeing the impact of my work, whether it's a website that users find intuitive or a program that automates a tedious task, gives me great satisfaction. I also find motivation in continuous learning and staying current with new technologies.",
-            tips: "Be genuine. Connect your motivation to the role you're applying for. Avoid purely monetary motivations in your answer."
-        },
-        {
-            id: 9,
-            question: "Describe a challenging situation you faced and how you overcame it.",
-            difficulty: "hard",
-            modelAnswer: "During my internship, I was assigned to fix a critical bug in production that was causing data inconsistency. I systematically debugged the issue by reviewing logs, reproducing the problem in a test environment, and tracing the code flow. I discovered a race condition in the database queries. I implemented proper transaction handling and added unit tests to prevent future occurrences. The fix was deployed within 24 hours.",
-            tips: "Use the STAR method. Focus on your problem-solving process. Emphasize what you learned from the experience."
-        },
-        {
-            id: 10,
-            question: "Do you have any questions for us?",
-            difficulty: "easy",
-            modelAnswer: "Yes, I would like to know: 1) What does a typical day look like for someone in this role? 2) What technologies does your team currently use? 3) How does the company support professional development and learning? 4) What are the biggest challenges the team is currently facing?",
-            tips: "Always have 2-3 questions prepared. Ask about team culture, growth opportunities, or current projects. Avoid asking about salary in the first interview."
-        }
-    ],
-
-    // ---------- Technical (Web Development) Questions ----------
-    technical: [
-        {
-            id: 11,
-            question: "What is HTML and why is it important for web development?",
-            difficulty: "easy",
-            modelAnswer: "HTML (HyperText Markup Language) is the standard markup language used to create the structure of web pages. It defines the content and layout using elements like headings, paragraphs, links, images, and forms. HTML is the backbone of every website — without it, web browsers would not know how to display content. It works alongside CSS for styling and JavaScript for interactivity.",
-            tips: "Explain the acronym, its purpose, and how it fits with CSS and JS. Mention semantic HTML elements for bonus points."
-        },
-        {
-            id: 12,
-            question: "Explain the CSS Box Model.",
-            difficulty: "medium",
-            modelAnswer: "The CSS Box Model describes how every HTML element is rendered as a rectangular box. It consists of four parts from inside to outside: 1) Content - the actual text or image, 2) Padding - space between the content and border, 3) Border - the edge around the padding, 4) Margin - space outside the border that separates the element from others. Understanding the box model is crucial for controlling layout and spacing in web design.",
-            tips: "Draw or visualize the box model. Mention the difference between box-sizing: content-box and border-box."
-        },
-        {
-            id: 13,
-            question: "What is the difference between var, let, and const in JavaScript?",
-            difficulty: "medium",
-            modelAnswer: "var is function-scoped and can be re-declared and updated. It is hoisted to the top of its scope. let is block-scoped, can be updated but not re-declared in the same scope. const is also block-scoped but cannot be updated or re-declared — it must be initialized at declaration. Modern JavaScript recommends using const by default and let when you need to reassign values, while avoiding var.",
-            tips: "Give examples of each. Explain scope differences and hoisting behavior. Mention best practices for when to use each."
-        },
-        {
-            id: 14,
-            question: "What is responsive web design?",
-            difficulty: "easy",
-            modelAnswer: "Responsive web design is an approach to web development where a website's layout adapts to different screen sizes and devices (desktop, tablet, mobile). It is achieved using flexible grids, flexible images, and CSS media queries. The goal is to provide an optimal viewing experience across all devices without creating separate versions of the website.",
-            tips: "Mention media queries, flexible layouts (flexbox/grid), and the viewport meta tag. Give examples of responsive techniques you have used."
-        },
-        {
-            id: 15,
-            question: "Explain the difference between == and === in JavaScript.",
-            difficulty: "easy",
-            modelAnswer: "The == operator (loose equality) compares two values for equality after performing type coercion, meaning it converts the operands to the same type before comparing. For example, '5' == 5 returns true. The === operator (strict equality) compares both value and type without type coercion. So '5' === 5 returns false because string and number are different types. It is recommended to use === to avoid unexpected behavior.",
-            tips: "Provide clear examples with different data types. Explain why strict equality is preferred in production code."
-        },
-        {
-            id: 16,
-            question: "What are semantic HTML elements? Give examples.",
-            difficulty: "medium",
-            modelAnswer: "Semantic HTML elements clearly describe their meaning to both the browser and the developer. Unlike div and span (which are non-semantic), semantic elements convey the purpose of the content. Examples include: <header> for page headers, <nav> for navigation, <main> for primary content, <article> for self-contained content, <section> for thematic grouping, <footer> for footers, and <aside> for sidebar content. Using semantic HTML improves accessibility, SEO, and code readability.",
-            tips: "Explain the difference between semantic and non-semantic tags. Mention the benefits for SEO and accessibility."
-        },
-        {
-            id: 17,
-            question: "What is the DOM in JavaScript?",
-            difficulty: "medium",
-            modelAnswer: "The DOM (Document Object Model) is a programming interface that represents the HTML document as a tree structure of objects. Each HTML element becomes a node in this tree. JavaScript can interact with the DOM to dynamically change the content, structure, and style of a web page. Common DOM methods include getElementById(), querySelector(), createElement(), and addEventListener(). The DOM is what makes web pages interactive.",
-            tips: "Explain the tree structure. Give examples of DOM manipulation methods. Mention how events work with the DOM."
-        },
-        {
-            id: 18,
-            question: "What is the difference between inline, block, and inline-block elements in CSS?",
-            difficulty: "medium",
-            modelAnswer: "Block elements (like div, p, h1) take up the full width available and start on a new line. Inline elements (like span, a, strong) only take up as much width as their content and do not start on a new line — you cannot set width/height on them. Inline-block elements combine both behaviors: they flow inline like inline elements but allow setting width, height, padding, and margin like block elements.",
-            tips: "Give specific HTML tag examples for each type. Explain when you would use inline-block in practice."
-        },
-        {
-            id: 19,
-            question: "Explain how localStorage works in JavaScript.",
-            difficulty: "hard",
-            modelAnswer: "localStorage is a Web Storage API that allows you to store key-value pairs in the browser with no expiration date. Data persists even after the browser is closed. It stores data as strings, so objects need to be converted using JSON.stringify() when saving and JSON.parse() when retrieving. Common methods include setItem(key, value), getItem(key), removeItem(key), and clear(). localStorage has a storage limit of about 5-10 MB per origin.",
-            tips: "Mention the difference between localStorage and sessionStorage. Explain the need for JSON.stringify/parse for complex data."
-        },
-        {
-            id: 20,
-            question: "What is CSS Flexbox and when would you use it?",
-            difficulty: "hard",
-            modelAnswer: "CSS Flexbox (Flexible Box Layout) is a one-dimensional layout model that makes it easy to align and distribute space among items in a container. You enable it by setting display: flex on the parent container. Key properties include flex-direction (row/column), justify-content (alignment along main axis), align-items (alignment along cross axis), and flex-wrap. Flexbox is ideal for navigation bars, card layouts, centering elements, and creating responsive designs.",
-            tips: "Explain the concept of main axis and cross axis. Mention specific use cases where Flexbox simplifies the layout."
-        }
-    ],
-
-    // ---------- Behavioral Questions ----------
-    behavioral: [
-        {
-            id: 21,
-            question: "Tell me about a time you had to learn something new quickly.",
-            difficulty: "easy",
-            modelAnswer: "During a hackathon, our team decided to use React.js for the frontend, which I had never used before. I spent the first few hours going through documentation and tutorials, then started implementing basic components. I broke down the learning into small tasks — understanding JSX, components, props, and state. By the end of the 24-hour hackathon, I had built a functional user interface. This experience taught me that structured self-learning with immediate application is the fastest way to pick up new skills.",
-            tips: "Show your learning process and adaptability. Emphasize the result and what you learned about your own learning style."
-        },
-        {
-            id: 22,
-            question: "Describe a situation where you disagreed with a team member.",
-            difficulty: "medium",
-            modelAnswer: "In a group project, my teammate wanted to use a NoSQL database while I preferred SQL for our structured data. Instead of arguing, I suggested we both present our reasoning with pros and cons. After discussing factors like data structure, query requirements, and team familiarity, we agreed that SQL was more appropriate for our use case. I learned that backing opinions with facts and being open to discussion leads to better decisions.",
-            tips: "Focus on respectful communication and resolution. Show that you can disagree professionally and reach a consensus."
-        },
-        {
-            id: 23,
-            question: "How do you prioritize tasks when you have multiple deadlines?",
-            difficulty: "medium",
-            modelAnswer: "I use a combination of urgency and importance to prioritize tasks. First, I list all tasks and their deadlines. Then I categorize them: urgent and important tasks come first, followed by important but not urgent ones. I use tools like to-do lists and calendar reminders to stay organized. During exams, I apply this by creating a study schedule that allocates more time to difficult subjects while ensuring all subjects are covered before their exam dates.",
-            tips: "Mention a specific framework (like Eisenhower Matrix) if you use one. Give a real example with concrete results."
-        },
-        {
-            id: 24,
-            question: "Tell me about a project you are most proud of.",
-            difficulty: "easy",
-            modelAnswer: "I am most proud of the AI Mock Interview Simulator I built as part of my PBL project. It is a web-based application that helps students practice interview questions across different categories like HR, Technical, and Behavioral. I designed the entire frontend using HTML, CSS, and JavaScript, implemented features like timed responses, self-assessment ratings, and model answers. It was rewarding because it solved a real problem — helping students prepare for placements.",
-            tips: "Choose a project relevant to the role. Explain your specific contributions, challenges overcome, and the impact of the project."
-        },
-        {
-            id: 25,
-            question: "How do you handle constructive criticism?",
-            difficulty: "medium",
-            modelAnswer: "I view constructive criticism as an opportunity to grow. When a professor pointed out that my code lacked proper comments and documentation, I initially felt defensive but then realized it was valid feedback. I spent time learning documentation best practices and started adding meaningful comments to all my code. Now, I actively seek feedback from peers during code reviews. I believe that accepting and acting on criticism is essential for professional development.",
-            tips: "Show maturity and growth mindset. Give a specific example of how you improved based on feedback received."
-        },
-        {
-            id: 26,
-            question: "Describe a time when you had to meet a tight deadline.",
-            difficulty: "hard",
-            modelAnswer: "Our team had to submit a project prototype one week earlier than planned due to a schedule change. I immediately created a revised timeline, identified the minimum viable features, and delegated tasks based on each member's strengths. I worked extra hours, focused on core functionality first, and communicated daily progress updates. We delivered a working prototype on time. This experience taught me the importance of agile planning and clear communication under pressure.",
-            tips: "Use the STAR method. Emphasize your planning, execution, and what you learned. Mention the successful outcome."
-        },
-        {
-            id: 27,
-            question: "How do you stay updated with new technologies?",
-            difficulty: "easy",
-            modelAnswer: "I follow several tech blogs and YouTube channels like Traversy Media and Fireship for web development updates. I regularly browse GitHub Trending to discover new projects and tools. I also participate in online communities on Reddit and Stack Overflow. Additionally, I take online courses on platforms like Coursera and freeCodeCamp to learn new frameworks. I believe consistent, daily learning — even 30 minutes — compounds into significant knowledge over time.",
-            tips: "Mention specific resources you actually use. Show that learning is a habit, not just something you do before interviews."
-        },
-        {
-            id: 28,
-            question: "Tell me about a time you failed and what you learned from it.",
-            difficulty: "hard",
-            modelAnswer: "In my third semester, I underestimated the complexity of a database project and started coding without proper planning. I ended up with a poorly designed schema that caused performance issues. I had to restructure the entire database midway through the project, which cost me several days. From this experience, I learned the importance of proper planning and design before implementation. Now, I always spend adequate time on architecture and design before writing code.",
-            tips: "Be honest about the failure. Focus more on the lesson learned and how it changed your approach. Show growth and self-awareness."
-        },
-        {
-            id: 29,
-            question: "How do you ensure quality in your work?",
-            difficulty: "medium",
-            modelAnswer: "I ensure quality through a multi-step approach: First, I plan and design before coding. Second, I write clean, well-commented code following consistent naming conventions. Third, I test my code thoroughly — both manually and with test cases. Fourth, I seek peer reviews to catch issues I might have missed. Finally, I iterate based on feedback. For web projects, I also test across different browsers and devices to ensure compatibility.",
-            tips: "Mention specific practices like code reviews, testing, and documentation. Show that quality is a habit, not an afterthought."
-        },
-        {
-            id: 30,
-            question: "Where do you see the future of web development heading?",
-            difficulty: "hard",
-            modelAnswer: "I believe web development is moving towards more AI-integrated experiences, with tools like AI code assistants becoming standard. WebAssembly will enable more complex applications to run in browsers. Progressive Web Apps (PWAs) will continue to blur the line between web and native apps. Frameworks will become more efficient with features like server-side rendering and edge computing. I also see low-code/no-code platforms growing, but skilled developers will always be needed for complex, custom solutions.",
-            tips: "Show awareness of current trends. Back your predictions with reasoning. Mention technologies you are personally excited about."
-        }
-    ]
+  "hr": [
+    {
+      "id": 1,
+      "question": "Tell me about yourself.",
+      "difficulty": "easy",
+      "modelAnswer": "I am a Computer Science student with a strong foundation in software engineering and web technologies. Over the past few years, I have built multiple full-stack projects, focused on clean architecture and problem solving. I enjoy tackling complex challenges and continuously upgrading my technical skills.",
+      "tips": "Follow the Present-Past-Future structure: what you do now, key background achievements, and what excites you about this role."
+    },
+    {
+      "id": 2,
+      "question": "Why should we hire you over other candidates?",
+      "difficulty": "medium",
+      "modelAnswer": "You should hire me because I offer a strong blend of technical fundamentals, quick learning agility, and a collaborative mindset. I don't just write code; I focus on delivering reliable, user-centered solutions and taking full ownership of project outcomes.",
+      "tips": "Highlight your unique combination of skills, work ethic, and cultural alignment with the team."
+    },
+    {
+      "id": 3,
+      "question": "What are your greatest strengths?",
+      "difficulty": "easy",
+      "modelAnswer": "My primary strengths are analytical problem solving, rapid adaptation to new tools and frameworks, and disciplined time management. I break complex requirements into modular tasks and execute them methodically.",
+      "tips": "Pick 2-3 specific strengths with brief concrete examples rather than generic buzzwords."
+    },
+    {
+      "id": 4,
+      "question": "What is your greatest weakness, and how are you addressing it?",
+      "difficulty": "medium",
+      "modelAnswer": "Early on, I struggled with perfectionism and spent too much time refining non-critical details. I addressed this by adopting agile estimation techniques, setting strict time-boxes for initial drafts, and gathering feedback early.",
+      "tips": "Always choose a genuine professional weakness and clearly emphasize the concrete steps you take to manage it."
+    },
+    {
+      "id": 5,
+      "question": "Where do you see yourself in five years?",
+      "difficulty": "medium",
+      "modelAnswer": "In five years, I aim to have deepened my technical expertise into senior engineering and system architecture. I want to take ownership of end-to-end technical decisions and mentor junior engineers while contributing to high-impact products.",
+      "tips": "Show ambition balanced with realistic milestones aligned with engineering growth."
+    },
+    {
+      "id": 6,
+      "question": "Why do you want to work at this company?",
+      "difficulty": "medium",
+      "modelAnswer": "I admire your team's commitment to engineering excellence, scalability, and solving real user problems. Having followed your product updates and architecture blog, I believe my background in modern web systems aligns directly with your mission.",
+      "tips": "Demonstrate that you researched their products, values, and engineering culture."
+    },
+    {
+      "id": 7,
+      "question": "How do you handle high pressure or tight deadlines?",
+      "difficulty": "hard",
+      "modelAnswer": "I manage pressure by stepping back to clarify priorities, breaking the workload into high-impact deliverables, and communicating transparently with stakeholders. Keeping a structured checklist and focusing on execution prevents panic.",
+      "tips": "Provide an example using the STAR method showing calm prioritization under stress."
+    },
+    {
+      "id": 8,
+      "question": "Describe your ideal work environment.",
+      "difficulty": "easy",
+      "modelAnswer": "I thrive in an environment that values transparent communication, continuous learning, and collaborative ownership. I appreciate teams where constructive code reviews and open feedback are encouraged.",
+      "tips": "Emphasize collaboration, engineering discipline, and a balance of autonomy and support."
+    },
+    {
+      "id": 9,
+      "question": "What motivates you to do your best work?",
+      "difficulty": "easy",
+      "modelAnswer": "I am motivated by solving difficult problems and seeing the tangible positive impact of my code on end users. Building robust, clean software that simplifies people's tasks is deeply rewarding for me.",
+      "tips": "Focus on intrinsic motivation such as craft quality, curiosity, and user impact."
+    },
+    {
+      "id": 10,
+      "question": "How do you stay updated with emerging industry technologies?",
+      "difficulty": "medium",
+      "modelAnswer": "I follow engineering blogs like Engineering at Uber and GitHub, read documentation for new language standards, experiment with side projects, and engage in developer communities.",
+      "tips": "Mention specific publications, newsletters, podcasts, or practical sandbox repositories."
+    },
+    {
+      "id": 11,
+      "question": "Tell me about a time you had to learn a technology very quickly.",
+      "difficulty": "medium",
+      "modelAnswer": "When our team needed to implement real-time messaging for a college project, none of us had worked with WebSockets. I spent a weekend studying the protocol, built a small proof of concept, and integrated it into our stack by the next sprint.",
+      "tips": "Highlight your learning methodology: documentation, small prototypes, and practical execution."
+    },
+    {
+      "id": 12,
+      "question": "How do you handle receiving critical feedback on your work?",
+      "difficulty": "medium",
+      "modelAnswer": "I view feedback as a crucial tool for technical and personal growth. I separate my ego from my work, listen carefully to understand the reviewer's perspective, ask clarifying questions, and implement the recommended improvements.",
+      "tips": "Show emotional maturity and a growth mindset."
+    },
+    {
+      "id": 13,
+      "question": "Tell me about a project you are particularly proud of.",
+      "difficulty": "medium",
+      "modelAnswer": "I am proud of an automated mock interview simulator I developed with persistent storage and AI answer evaluation. I engineered the full pipeline from database schema design to external API integrations and responsive UI.",
+      "tips": "Focus on technical challenges solved, personal contributions, and measurable results."
+    },
+    {
+      "id": 14,
+      "question": "How do you prioritize competing deadlines?",
+      "difficulty": "medium",
+      "modelAnswer": "I evaluate tasks based on business impact and dependencies using an urgency-importance matrix. I keep stakeholders informed early if a deadline requires scope adjustment rather than silently slipping.",
+      "tips": "Mention transparency and proactive communication alongside prioritization criteria."
+    },
+    {
+      "id": 15,
+      "question": "What are your salary expectations for this position?",
+      "difficulty": "medium",
+      "modelAnswer": "Based on my research into market benchmarks for entry-level software engineering roles in this location and my technical skill set, I am looking for a competitive package in the standard industry range. I am open to discussing this further based on the total compensation structure.",
+      "tips": "Give a researched range or defer politely until scope and responsibilities are fully outlined."
+    },
+    {
+      "id": 16,
+      "question": "HR Question 16: How do you approach handling burnout risk in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing handling burnout risk, my approach is grounded in professional responsibility and open communication. I monitor my focus levels, enforce clear boundaries between work and rest, and communicate early with leads if workload volume begins compromising code quality.",
+      "tips": "Show proactive health and energy management."
+    },
+    {
+      "id": 17,
+      "question": "HR Question 17: How do you approach ethical dilemmas in software development in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing ethical dilemmas in software development, my approach is grounded in professional responsibility and open communication. In any situation involving data privacy or security shortcuts, I advocate for user protection and transparent compliance with technical standards, escalating concerns professionally.",
+      "tips": "Emphasize integrity and user trust."
+    },
+    {
+      "id": 18,
+      "question": "HR Question 18: How do you approach managing remote work effectively in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing managing remote work effectively, my approach is grounded in professional responsibility and open communication. Remote work requires clear asynchronous documentation, punctual participation in syncs, and proactive status updates to maintain team alignment.",
+      "tips": "Highlight written communication and self-discipline."
+    },
+    {
+      "id": 19,
+      "question": "HR Question 19: How do you approach mentoring peers or juniors in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing mentoring peers or juniors, my approach is grounded in professional responsibility and open communication. I focus on guiding colleagues to discover solutions rather than simply giving answers, fostering their problem-solving independence and confidence.",
+      "tips": "Show empathy, patience, and structured guidance."
+    },
+    {
+      "id": 20,
+      "question": "HR Question 20: How do you approach celebrating team success vs individual credit in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing celebrating team success vs individual credit, my approach is grounded in professional responsibility and open communication. Software is a team sport. I always ensure collective efforts are recognized and acknowledge peers who contributed to unblocking the project.",
+      "tips": "Show humility and team-first orientation."
+    },
+    {
+      "id": 21,
+      "question": "HR Question 21: How do you approach cultural fit and company values in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing cultural fit and company values, my approach is grounded in professional responsibility and open communication. Aligning personal values with company culture ensures long-term mutual growth. I research company values and ensure my everyday communication and work ethics mirror those standards.",
+      "tips": "Be authentic and reference specific corporate values."
+    },
+    {
+      "id": 22,
+      "question": "HR Question 22: How do you approach handling ambiguous instructions in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing handling ambiguous instructions, my approach is grounded in professional responsibility and open communication. When given ambiguous requirements, I document my assumptions, create a minimal prototype, and schedule a quick sync to validate the direction before committing deep effort.",
+      "tips": "Show initiative in seeking clarity without being paralyzed."
+    },
+    {
+      "id": 23,
+      "question": "HR Question 23: How do you approach dealing with repetitive tasks in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing dealing with repetitive tasks, my approach is grounded in professional responsibility and open communication. I approach repetitive tasks by standardizing them and writing automation scripts where possible. If automation isn't feasible, I focus on accuracy and consistency.",
+      "tips": "Highlight an automation mindset and discipline."
+    },
+    {
+      "id": 24,
+      "question": "HR Question 24: How do you approach presenting technical concepts to non-technical stakeholders in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing presenting technical concepts to non-technical stakeholders, my approach is grounded in professional responsibility and open communication. I avoid jargon, use concrete analogies, and focus on business outcomes and user impact rather than low-level implementation details.",
+      "tips": "Focus on empathy for the audience and clarity."
+    },
+    {
+      "id": 25,
+      "question": "HR Question 25: How do you approach disagreeing with a team decision in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing disagreeing with a team decision, my approach is grounded in professional responsibility and open communication. I voice my perspective with objective data during the discussion phase. Once the team reaches a consensus, I commit fully to the agreed direction even if it differed from my initial preference.",
+      "tips": "Demonstrate the 'disagree and commit' principle."
+    },
+    {
+      "id": 26,
+      "question": "HR Question 26: How do you approach handling burnout risk in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing handling burnout risk, my approach is grounded in professional responsibility and open communication. I monitor my focus levels, enforce clear boundaries between work and rest, and communicate early with leads if workload volume begins compromising code quality.",
+      "tips": "Show proactive health and energy management."
+    },
+    {
+      "id": 27,
+      "question": "HR Question 27: How do you approach ethical dilemmas in software development in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing ethical dilemmas in software development, my approach is grounded in professional responsibility and open communication. In any situation involving data privacy or security shortcuts, I advocate for user protection and transparent compliance with technical standards, escalating concerns professionally.",
+      "tips": "Emphasize integrity and user trust."
+    },
+    {
+      "id": 28,
+      "question": "HR Question 28: How do you approach managing remote work effectively in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing managing remote work effectively, my approach is grounded in professional responsibility and open communication. Remote work requires clear asynchronous documentation, punctual participation in syncs, and proactive status updates to maintain team alignment.",
+      "tips": "Highlight written communication and self-discipline."
+    },
+    {
+      "id": 29,
+      "question": "HR Question 29: How do you approach mentoring peers or juniors in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing mentoring peers or juniors, my approach is grounded in professional responsibility and open communication. I focus on guiding colleagues to discover solutions rather than simply giving answers, fostering their problem-solving independence and confidence.",
+      "tips": "Show empathy, patience, and structured guidance."
+    },
+    {
+      "id": 30,
+      "question": "HR Question 30: How do you approach celebrating team success vs individual credit in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing celebrating team success vs individual credit, my approach is grounded in professional responsibility and open communication. Software is a team sport. I always ensure collective efforts are recognized and acknowledge peers who contributed to unblocking the project.",
+      "tips": "Show humility and team-first orientation."
+    },
+    {
+      "id": 31,
+      "question": "HR Question 31: How do you approach cultural fit and company values in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing cultural fit and company values, my approach is grounded in professional responsibility and open communication. Aligning personal values with company culture ensures long-term mutual growth. I research company values and ensure my everyday communication and work ethics mirror those standards.",
+      "tips": "Be authentic and reference specific corporate values."
+    },
+    {
+      "id": 32,
+      "question": "HR Question 32: How do you approach handling ambiguous instructions in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing handling ambiguous instructions, my approach is grounded in professional responsibility and open communication. When given ambiguous requirements, I document my assumptions, create a minimal prototype, and schedule a quick sync to validate the direction before committing deep effort.",
+      "tips": "Show initiative in seeking clarity without being paralyzed."
+    },
+    {
+      "id": 33,
+      "question": "HR Question 33: How do you approach dealing with repetitive tasks in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing dealing with repetitive tasks, my approach is grounded in professional responsibility and open communication. I approach repetitive tasks by standardizing them and writing automation scripts where possible. If automation isn't feasible, I focus on accuracy and consistency.",
+      "tips": "Highlight an automation mindset and discipline."
+    },
+    {
+      "id": 34,
+      "question": "HR Question 34: How do you approach presenting technical concepts to non-technical stakeholders in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing presenting technical concepts to non-technical stakeholders, my approach is grounded in professional responsibility and open communication. I avoid jargon, use concrete analogies, and focus on business outcomes and user impact rather than low-level implementation details.",
+      "tips": "Focus on empathy for the audience and clarity."
+    },
+    {
+      "id": 35,
+      "question": "HR Question 35: How do you approach disagreeing with a team decision in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing disagreeing with a team decision, my approach is grounded in professional responsibility and open communication. I voice my perspective with objective data during the discussion phase. Once the team reaches a consensus, I commit fully to the agreed direction even if it differed from my initial preference.",
+      "tips": "Demonstrate the 'disagree and commit' principle."
+    },
+    {
+      "id": 36,
+      "question": "HR Question 36: How do you approach handling burnout risk in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing handling burnout risk, my approach is grounded in professional responsibility and open communication. I monitor my focus levels, enforce clear boundaries between work and rest, and communicate early with leads if workload volume begins compromising code quality.",
+      "tips": "Show proactive health and energy management."
+    },
+    {
+      "id": 37,
+      "question": "HR Question 37: How do you approach ethical dilemmas in software development in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing ethical dilemmas in software development, my approach is grounded in professional responsibility and open communication. In any situation involving data privacy or security shortcuts, I advocate for user protection and transparent compliance with technical standards, escalating concerns professionally.",
+      "tips": "Emphasize integrity and user trust."
+    },
+    {
+      "id": 38,
+      "question": "HR Question 38: How do you approach managing remote work effectively in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing managing remote work effectively, my approach is grounded in professional responsibility and open communication. Remote work requires clear asynchronous documentation, punctual participation in syncs, and proactive status updates to maintain team alignment.",
+      "tips": "Highlight written communication and self-discipline."
+    },
+    {
+      "id": 39,
+      "question": "HR Question 39: How do you approach mentoring peers or juniors in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing mentoring peers or juniors, my approach is grounded in professional responsibility and open communication. I focus on guiding colleagues to discover solutions rather than simply giving answers, fostering their problem-solving independence and confidence.",
+      "tips": "Show empathy, patience, and structured guidance."
+    },
+    {
+      "id": 40,
+      "question": "HR Question 40: How do you approach celebrating team success vs individual credit in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing celebrating team success vs individual credit, my approach is grounded in professional responsibility and open communication. Software is a team sport. I always ensure collective efforts are recognized and acknowledge peers who contributed to unblocking the project.",
+      "tips": "Show humility and team-first orientation."
+    },
+    {
+      "id": 41,
+      "question": "HR Question 41: How do you approach cultural fit and company values in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing cultural fit and company values, my approach is grounded in professional responsibility and open communication. Aligning personal values with company culture ensures long-term mutual growth. I research company values and ensure my everyday communication and work ethics mirror those standards.",
+      "tips": "Be authentic and reference specific corporate values."
+    },
+    {
+      "id": 42,
+      "question": "HR Question 42: How do you approach handling ambiguous instructions in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing handling ambiguous instructions, my approach is grounded in professional responsibility and open communication. When given ambiguous requirements, I document my assumptions, create a minimal prototype, and schedule a quick sync to validate the direction before committing deep effort.",
+      "tips": "Show initiative in seeking clarity without being paralyzed."
+    },
+    {
+      "id": 43,
+      "question": "HR Question 43: How do you approach dealing with repetitive tasks in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing dealing with repetitive tasks, my approach is grounded in professional responsibility and open communication. I approach repetitive tasks by standardizing them and writing automation scripts where possible. If automation isn't feasible, I focus on accuracy and consistency.",
+      "tips": "Highlight an automation mindset and discipline."
+    },
+    {
+      "id": 44,
+      "question": "HR Question 44: How do you approach presenting technical concepts to non-technical stakeholders in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing presenting technical concepts to non-technical stakeholders, my approach is grounded in professional responsibility and open communication. I avoid jargon, use concrete analogies, and focus on business outcomes and user impact rather than low-level implementation details.",
+      "tips": "Focus on empathy for the audience and clarity."
+    },
+    {
+      "id": 45,
+      "question": "HR Question 45: How do you approach disagreeing with a team decision in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing disagreeing with a team decision, my approach is grounded in professional responsibility and open communication. I voice my perspective with objective data during the discussion phase. Once the team reaches a consensus, I commit fully to the agreed direction even if it differed from my initial preference.",
+      "tips": "Demonstrate the 'disagree and commit' principle."
+    },
+    {
+      "id": 46,
+      "question": "HR Question 46: How do you approach handling burnout risk in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing handling burnout risk, my approach is grounded in professional responsibility and open communication. I monitor my focus levels, enforce clear boundaries between work and rest, and communicate early with leads if workload volume begins compromising code quality.",
+      "tips": "Show proactive health and energy management."
+    },
+    {
+      "id": 47,
+      "question": "HR Question 47: How do you approach ethical dilemmas in software development in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing ethical dilemmas in software development, my approach is grounded in professional responsibility and open communication. In any situation involving data privacy or security shortcuts, I advocate for user protection and transparent compliance with technical standards, escalating concerns professionally.",
+      "tips": "Emphasize integrity and user trust."
+    },
+    {
+      "id": 48,
+      "question": "HR Question 48: How do you approach managing remote work effectively in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing managing remote work effectively, my approach is grounded in professional responsibility and open communication. Remote work requires clear asynchronous documentation, punctual participation in syncs, and proactive status updates to maintain team alignment.",
+      "tips": "Highlight written communication and self-discipline."
+    },
+    {
+      "id": 49,
+      "question": "HR Question 49: How do you approach mentoring peers or juniors in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing mentoring peers or juniors, my approach is grounded in professional responsibility and open communication. I focus on guiding colleagues to discover solutions rather than simply giving answers, fostering their problem-solving independence and confidence.",
+      "tips": "Show empathy, patience, and structured guidance."
+    },
+    {
+      "id": 50,
+      "question": "HR Question 50: How do you approach celebrating team success vs individual credit in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing celebrating team success vs individual credit, my approach is grounded in professional responsibility and open communication. Software is a team sport. I always ensure collective efforts are recognized and acknowledge peers who contributed to unblocking the project.",
+      "tips": "Show humility and team-first orientation."
+    },
+    {
+      "id": 51,
+      "question": "HR Question 51: How do you approach cultural fit and company values in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing cultural fit and company values, my approach is grounded in professional responsibility and open communication. Aligning personal values with company culture ensures long-term mutual growth. I research company values and ensure my everyday communication and work ethics mirror those standards.",
+      "tips": "Be authentic and reference specific corporate values."
+    },
+    {
+      "id": 52,
+      "question": "HR Question 52: How do you approach handling ambiguous instructions in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing handling ambiguous instructions, my approach is grounded in professional responsibility and open communication. When given ambiguous requirements, I document my assumptions, create a minimal prototype, and schedule a quick sync to validate the direction before committing deep effort.",
+      "tips": "Show initiative in seeking clarity without being paralyzed."
+    },
+    {
+      "id": 53,
+      "question": "HR Question 53: How do you approach dealing with repetitive tasks in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing dealing with repetitive tasks, my approach is grounded in professional responsibility and open communication. I approach repetitive tasks by standardizing them and writing automation scripts where possible. If automation isn't feasible, I focus on accuracy and consistency.",
+      "tips": "Highlight an automation mindset and discipline."
+    },
+    {
+      "id": 54,
+      "question": "HR Question 54: How do you approach presenting technical concepts to non-technical stakeholders in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing presenting technical concepts to non-technical stakeholders, my approach is grounded in professional responsibility and open communication. I avoid jargon, use concrete analogies, and focus on business outcomes and user impact rather than low-level implementation details.",
+      "tips": "Focus on empathy for the audience and clarity."
+    },
+    {
+      "id": 55,
+      "question": "HR Question 55: How do you approach disagreeing with a team decision in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing disagreeing with a team decision, my approach is grounded in professional responsibility and open communication. I voice my perspective with objective data during the discussion phase. Once the team reaches a consensus, I commit fully to the agreed direction even if it differed from my initial preference.",
+      "tips": "Demonstrate the 'disagree and commit' principle."
+    },
+    {
+      "id": 56,
+      "question": "HR Question 56: How do you approach handling burnout risk in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing handling burnout risk, my approach is grounded in professional responsibility and open communication. I monitor my focus levels, enforce clear boundaries between work and rest, and communicate early with leads if workload volume begins compromising code quality.",
+      "tips": "Show proactive health and energy management."
+    },
+    {
+      "id": 57,
+      "question": "HR Question 57: How do you approach ethical dilemmas in software development in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing ethical dilemmas in software development, my approach is grounded in professional responsibility and open communication. In any situation involving data privacy or security shortcuts, I advocate for user protection and transparent compliance with technical standards, escalating concerns professionally.",
+      "tips": "Emphasize integrity and user trust."
+    },
+    {
+      "id": 58,
+      "question": "HR Question 58: How do you approach managing remote work effectively in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing managing remote work effectively, my approach is grounded in professional responsibility and open communication. Remote work requires clear asynchronous documentation, punctual participation in syncs, and proactive status updates to maintain team alignment.",
+      "tips": "Highlight written communication and self-discipline."
+    },
+    {
+      "id": 59,
+      "question": "HR Question 59: How do you approach mentoring peers or juniors in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing mentoring peers or juniors, my approach is grounded in professional responsibility and open communication. I focus on guiding colleagues to discover solutions rather than simply giving answers, fostering their problem-solving independence and confidence.",
+      "tips": "Show empathy, patience, and structured guidance."
+    },
+    {
+      "id": 60,
+      "question": "HR Question 60: How do you approach celebrating team success vs individual credit in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing celebrating team success vs individual credit, my approach is grounded in professional responsibility and open communication. Software is a team sport. I always ensure collective efforts are recognized and acknowledge peers who contributed to unblocking the project.",
+      "tips": "Show humility and team-first orientation."
+    },
+    {
+      "id": 61,
+      "question": "HR Question 61: How do you approach cultural fit and company values in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing cultural fit and company values, my approach is grounded in professional responsibility and open communication. Aligning personal values with company culture ensures long-term mutual growth. I research company values and ensure my everyday communication and work ethics mirror those standards.",
+      "tips": "Be authentic and reference specific corporate values."
+    },
+    {
+      "id": 62,
+      "question": "HR Question 62: How do you approach handling ambiguous instructions in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing handling ambiguous instructions, my approach is grounded in professional responsibility and open communication. When given ambiguous requirements, I document my assumptions, create a minimal prototype, and schedule a quick sync to validate the direction before committing deep effort.",
+      "tips": "Show initiative in seeking clarity without being paralyzed."
+    },
+    {
+      "id": 63,
+      "question": "HR Question 63: How do you approach dealing with repetitive tasks in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing dealing with repetitive tasks, my approach is grounded in professional responsibility and open communication. I approach repetitive tasks by standardizing them and writing automation scripts where possible. If automation isn't feasible, I focus on accuracy and consistency.",
+      "tips": "Highlight an automation mindset and discipline."
+    },
+    {
+      "id": 64,
+      "question": "HR Question 64: How do you approach presenting technical concepts to non-technical stakeholders in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing presenting technical concepts to non-technical stakeholders, my approach is grounded in professional responsibility and open communication. I avoid jargon, use concrete analogies, and focus on business outcomes and user impact rather than low-level implementation details.",
+      "tips": "Focus on empathy for the audience and clarity."
+    },
+    {
+      "id": 65,
+      "question": "HR Question 65: How do you approach disagreeing with a team decision in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing disagreeing with a team decision, my approach is grounded in professional responsibility and open communication. I voice my perspective with objective data during the discussion phase. Once the team reaches a consensus, I commit fully to the agreed direction even if it differed from my initial preference.",
+      "tips": "Demonstrate the 'disagree and commit' principle."
+    },
+    {
+      "id": 66,
+      "question": "HR Question 66: How do you approach handling burnout risk in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing handling burnout risk, my approach is grounded in professional responsibility and open communication. I monitor my focus levels, enforce clear boundaries between work and rest, and communicate early with leads if workload volume begins compromising code quality.",
+      "tips": "Show proactive health and energy management."
+    },
+    {
+      "id": 67,
+      "question": "HR Question 67: How do you approach ethical dilemmas in software development in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing ethical dilemmas in software development, my approach is grounded in professional responsibility and open communication. In any situation involving data privacy or security shortcuts, I advocate for user protection and transparent compliance with technical standards, escalating concerns professionally.",
+      "tips": "Emphasize integrity and user trust."
+    },
+    {
+      "id": 68,
+      "question": "HR Question 68: How do you approach managing remote work effectively in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing managing remote work effectively, my approach is grounded in professional responsibility and open communication. Remote work requires clear asynchronous documentation, punctual participation in syncs, and proactive status updates to maintain team alignment.",
+      "tips": "Highlight written communication and self-discipline."
+    },
+    {
+      "id": 69,
+      "question": "HR Question 69: How do you approach mentoring peers or juniors in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing mentoring peers or juniors, my approach is grounded in professional responsibility and open communication. I focus on guiding colleagues to discover solutions rather than simply giving answers, fostering their problem-solving independence and confidence.",
+      "tips": "Show empathy, patience, and structured guidance."
+    },
+    {
+      "id": 70,
+      "question": "HR Question 70: How do you approach celebrating team success vs individual credit in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing celebrating team success vs individual credit, my approach is grounded in professional responsibility and open communication. Software is a team sport. I always ensure collective efforts are recognized and acknowledge peers who contributed to unblocking the project.",
+      "tips": "Show humility and team-first orientation."
+    },
+    {
+      "id": 71,
+      "question": "HR Question 71: How do you approach cultural fit and company values in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing cultural fit and company values, my approach is grounded in professional responsibility and open communication. Aligning personal values with company culture ensures long-term mutual growth. I research company values and ensure my everyday communication and work ethics mirror those standards.",
+      "tips": "Be authentic and reference specific corporate values."
+    },
+    {
+      "id": 72,
+      "question": "HR Question 72: How do you approach handling ambiguous instructions in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing handling ambiguous instructions, my approach is grounded in professional responsibility and open communication. When given ambiguous requirements, I document my assumptions, create a minimal prototype, and schedule a quick sync to validate the direction before committing deep effort.",
+      "tips": "Show initiative in seeking clarity without being paralyzed."
+    },
+    {
+      "id": 73,
+      "question": "HR Question 73: How do you approach dealing with repetitive tasks in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing dealing with repetitive tasks, my approach is grounded in professional responsibility and open communication. I approach repetitive tasks by standardizing them and writing automation scripts where possible. If automation isn't feasible, I focus on accuracy and consistency.",
+      "tips": "Highlight an automation mindset and discipline."
+    },
+    {
+      "id": 74,
+      "question": "HR Question 74: How do you approach presenting technical concepts to non-technical stakeholders in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing presenting technical concepts to non-technical stakeholders, my approach is grounded in professional responsibility and open communication. I avoid jargon, use concrete analogies, and focus on business outcomes and user impact rather than low-level implementation details.",
+      "tips": "Focus on empathy for the audience and clarity."
+    },
+    {
+      "id": 75,
+      "question": "HR Question 75: How do you approach disagreeing with a team decision in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing disagreeing with a team decision, my approach is grounded in professional responsibility and open communication. I voice my perspective with objective data during the discussion phase. Once the team reaches a consensus, I commit fully to the agreed direction even if it differed from my initial preference.",
+      "tips": "Demonstrate the 'disagree and commit' principle."
+    },
+    {
+      "id": 76,
+      "question": "HR Question 76: How do you approach handling burnout risk in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing handling burnout risk, my approach is grounded in professional responsibility and open communication. I monitor my focus levels, enforce clear boundaries between work and rest, and communicate early with leads if workload volume begins compromising code quality.",
+      "tips": "Show proactive health and energy management."
+    },
+    {
+      "id": 77,
+      "question": "HR Question 77: How do you approach ethical dilemmas in software development in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing ethical dilemmas in software development, my approach is grounded in professional responsibility and open communication. In any situation involving data privacy or security shortcuts, I advocate for user protection and transparent compliance with technical standards, escalating concerns professionally.",
+      "tips": "Emphasize integrity and user trust."
+    },
+    {
+      "id": 78,
+      "question": "HR Question 78: How do you approach managing remote work effectively in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing managing remote work effectively, my approach is grounded in professional responsibility and open communication. Remote work requires clear asynchronous documentation, punctual participation in syncs, and proactive status updates to maintain team alignment.",
+      "tips": "Highlight written communication and self-discipline."
+    },
+    {
+      "id": 79,
+      "question": "HR Question 79: How do you approach mentoring peers or juniors in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing mentoring peers or juniors, my approach is grounded in professional responsibility and open communication. I focus on guiding colleagues to discover solutions rather than simply giving answers, fostering their problem-solving independence and confidence.",
+      "tips": "Show empathy, patience, and structured guidance."
+    },
+    {
+      "id": 80,
+      "question": "HR Question 80: How do you approach celebrating team success vs individual credit in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing celebrating team success vs individual credit, my approach is grounded in professional responsibility and open communication. Software is a team sport. I always ensure collective efforts are recognized and acknowledge peers who contributed to unblocking the project.",
+      "tips": "Show humility and team-first orientation."
+    },
+    {
+      "id": 81,
+      "question": "HR Question 81: How do you approach cultural fit and company values in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing cultural fit and company values, my approach is grounded in professional responsibility and open communication. Aligning personal values with company culture ensures long-term mutual growth. I research company values and ensure my everyday communication and work ethics mirror those standards.",
+      "tips": "Be authentic and reference specific corporate values."
+    },
+    {
+      "id": 82,
+      "question": "HR Question 82: How do you approach handling ambiguous instructions in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing handling ambiguous instructions, my approach is grounded in professional responsibility and open communication. When given ambiguous requirements, I document my assumptions, create a minimal prototype, and schedule a quick sync to validate the direction before committing deep effort.",
+      "tips": "Show initiative in seeking clarity without being paralyzed."
+    },
+    {
+      "id": 83,
+      "question": "HR Question 83: How do you approach dealing with repetitive tasks in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing dealing with repetitive tasks, my approach is grounded in professional responsibility and open communication. I approach repetitive tasks by standardizing them and writing automation scripts where possible. If automation isn't feasible, I focus on accuracy and consistency.",
+      "tips": "Highlight an automation mindset and discipline."
+    },
+    {
+      "id": 84,
+      "question": "HR Question 84: How do you approach presenting technical concepts to non-technical stakeholders in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing presenting technical concepts to non-technical stakeholders, my approach is grounded in professional responsibility and open communication. I avoid jargon, use concrete analogies, and focus on business outcomes and user impact rather than low-level implementation details.",
+      "tips": "Focus on empathy for the audience and clarity."
+    },
+    {
+      "id": 85,
+      "question": "HR Question 85: How do you approach disagreeing with a team decision in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing disagreeing with a team decision, my approach is grounded in professional responsibility and open communication. I voice my perspective with objective data during the discussion phase. Once the team reaches a consensus, I commit fully to the agreed direction even if it differed from my initial preference.",
+      "tips": "Demonstrate the 'disagree and commit' principle."
+    },
+    {
+      "id": 86,
+      "question": "HR Question 86: How do you approach handling burnout risk in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing handling burnout risk, my approach is grounded in professional responsibility and open communication. I monitor my focus levels, enforce clear boundaries between work and rest, and communicate early with leads if workload volume begins compromising code quality.",
+      "tips": "Show proactive health and energy management."
+    },
+    {
+      "id": 87,
+      "question": "HR Question 87: How do you approach ethical dilemmas in software development in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing ethical dilemmas in software development, my approach is grounded in professional responsibility and open communication. In any situation involving data privacy or security shortcuts, I advocate for user protection and transparent compliance with technical standards, escalating concerns professionally.",
+      "tips": "Emphasize integrity and user trust."
+    },
+    {
+      "id": 88,
+      "question": "HR Question 88: How do you approach managing remote work effectively in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing managing remote work effectively, my approach is grounded in professional responsibility and open communication. Remote work requires clear asynchronous documentation, punctual participation in syncs, and proactive status updates to maintain team alignment.",
+      "tips": "Highlight written communication and self-discipline."
+    },
+    {
+      "id": 89,
+      "question": "HR Question 89: How do you approach mentoring peers or juniors in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing mentoring peers or juniors, my approach is grounded in professional responsibility and open communication. I focus on guiding colleagues to discover solutions rather than simply giving answers, fostering their problem-solving independence and confidence.",
+      "tips": "Show empathy, patience, and structured guidance."
+    },
+    {
+      "id": 90,
+      "question": "HR Question 90: How do you approach celebrating team success vs individual credit in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing celebrating team success vs individual credit, my approach is grounded in professional responsibility and open communication. Software is a team sport. I always ensure collective efforts are recognized and acknowledge peers who contributed to unblocking the project.",
+      "tips": "Show humility and team-first orientation."
+    },
+    {
+      "id": 91,
+      "question": "HR Question 91: How do you approach cultural fit and company values in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing cultural fit and company values, my approach is grounded in professional responsibility and open communication. Aligning personal values with company culture ensures long-term mutual growth. I research company values and ensure my everyday communication and work ethics mirror those standards.",
+      "tips": "Be authentic and reference specific corporate values."
+    },
+    {
+      "id": 92,
+      "question": "HR Question 92: How do you approach handling ambiguous instructions in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing handling ambiguous instructions, my approach is grounded in professional responsibility and open communication. When given ambiguous requirements, I document my assumptions, create a minimal prototype, and schedule a quick sync to validate the direction before committing deep effort.",
+      "tips": "Show initiative in seeking clarity without being paralyzed."
+    },
+    {
+      "id": 93,
+      "question": "HR Question 93: How do you approach dealing with repetitive tasks in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing dealing with repetitive tasks, my approach is grounded in professional responsibility and open communication. I approach repetitive tasks by standardizing them and writing automation scripts where possible. If automation isn't feasible, I focus on accuracy and consistency.",
+      "tips": "Highlight an automation mindset and discipline."
+    },
+    {
+      "id": 94,
+      "question": "HR Question 94: How do you approach presenting technical concepts to non-technical stakeholders in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing presenting technical concepts to non-technical stakeholders, my approach is grounded in professional responsibility and open communication. I avoid jargon, use concrete analogies, and focus on business outcomes and user impact rather than low-level implementation details.",
+      "tips": "Focus on empathy for the audience and clarity."
+    },
+    {
+      "id": 95,
+      "question": "HR Question 95: How do you approach disagreeing with a team decision in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing disagreeing with a team decision, my approach is grounded in professional responsibility and open communication. I voice my perspective with objective data during the discussion phase. Once the team reaches a consensus, I commit fully to the agreed direction even if it differed from my initial preference.",
+      "tips": "Demonstrate the 'disagree and commit' principle."
+    },
+    {
+      "id": 96,
+      "question": "HR Question 96: How do you approach handling burnout risk in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing handling burnout risk, my approach is grounded in professional responsibility and open communication. I monitor my focus levels, enforce clear boundaries between work and rest, and communicate early with leads if workload volume begins compromising code quality.",
+      "tips": "Show proactive health and energy management."
+    },
+    {
+      "id": 97,
+      "question": "HR Question 97: How do you approach ethical dilemmas in software development in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing ethical dilemmas in software development, my approach is grounded in professional responsibility and open communication. In any situation involving data privacy or security shortcuts, I advocate for user protection and transparent compliance with technical standards, escalating concerns professionally.",
+      "tips": "Emphasize integrity and user trust."
+    },
+    {
+      "id": 98,
+      "question": "HR Question 98: How do you approach managing remote work effectively in a collaborative software engineering environment?",
+      "difficulty": "medium",
+      "modelAnswer": "When managing managing remote work effectively, my approach is grounded in professional responsibility and open communication. Remote work requires clear asynchronous documentation, punctual participation in syncs, and proactive status updates to maintain team alignment.",
+      "tips": "Highlight written communication and self-discipline."
+    },
+    {
+      "id": 99,
+      "question": "HR Question 99: How do you approach mentoring peers or juniors in a collaborative software engineering environment?",
+      "difficulty": "hard",
+      "modelAnswer": "When managing mentoring peers or juniors, my approach is grounded in professional responsibility and open communication. I focus on guiding colleagues to discover solutions rather than simply giving answers, fostering their problem-solving independence and confidence.",
+      "tips": "Show empathy, patience, and structured guidance."
+    },
+    {
+      "id": 100,
+      "question": "HR Question 100: How do you approach celebrating team success vs individual credit in a collaborative software engineering environment?",
+      "difficulty": "easy",
+      "modelAnswer": "When managing celebrating team success vs individual credit, my approach is grounded in professional responsibility and open communication. Software is a team sport. I always ensure collective efforts are recognized and acknowledge peers who contributed to unblocking the project.",
+      "tips": "Show humility and team-first orientation."
+    }
+  ],
+  "technical": [
+    {
+      "id": 101,
+      "question": "Explain the difference between var, let, and const in JavaScript.",
+      "difficulty": "medium",
+      "modelAnswer": "var is function-scoped and hoisted with an initial value of undefined. let and const are block-scoped and hoisted without initialization, remaining in the Temporal Dead Zone until declared. const cannot be reassigned after declaration, while let can.",
+      "tips": "Mention scoping rules, hoisting behavior, temporal dead zone, and modern best practices (const by default)."
+    },
+    {
+      "id": 102,
+      "question": "How does the browser event loop work in JavaScript?",
+      "difficulty": "hard",
+      "modelAnswer": "JavaScript is single-threaded. The event loop continuously monitors the Call Stack and task queues. When the Call Stack is empty, it processes microtasks (Promise callbacks, queueMicrotask) first before moving to macrotasks (setTimeout, setInterval, I/O events).",
+      "tips": "Explain Call Stack, Web APIs, Microtask Queue vs Macrotask Queue, and execution order."
+    },
+    {
+      "id": 103,
+      "question": "What are the differences between localStorage, sessionStorage, and cookies?",
+      "difficulty": "medium",
+      "modelAnswer": "localStorage persists data across browser sessions with ~5-10MB storage. sessionStorage persists data only for the current tab lifetime. Cookies are small (~4KB) data stores sent with every HTTP request, supporting server-side flags like HttpOnly and Secure.",
+      "tips": "Compare storage capacity, lifespan, network transmission, and security flags."
+    },
+    {
+      "id": 104,
+      "question": "Explain CSS Box Model and the difference between content-box and border-box.",
+      "difficulty": "easy",
+      "modelAnswer": "The CSS Box Model consists of content, padding, border, and margin. In content-box, width applies only to content, so padding and border add to the total element width. In border-box, width includes content, padding, and border, making responsive sizing much more intuitive.",
+      "tips": "Draw or describe the 4 layers and explain why box-sizing: border-box is standard in modern resets."
+    },
+    {
+      "id": 105,
+      "question": "What is the difference between synchronous and asynchronous code in JavaScript?",
+      "difficulty": "easy",
+      "modelAnswer": "Synchronous code executes sequentially, blocking subsequent execution until the current operation finishes. Asynchronous code executes without blocking the main thread, utilizing callbacks, Promises, or async/await to handle deferred results via the event loop.",
+      "tips": "Give examples: blocking file/loop operations vs non-blocking fetch/timer calls."
+    },
+    {
+      "id": 106,
+      "question": "What are RESTful APIs and what are their primary HTTP methods?",
+      "difficulty": "medium",
+      "modelAnswer": "REST (Representational State Transfer) is an architectural style for networked applications. Primary HTTP methods include GET (retrieve resource), POST (create resource), PUT (replace resource), PATCH (partial update), and DELETE (remove resource).",
+      "tips": "Explain idempotency, statelessness, and standard HTTP response status code conventions."
+    },
+    {
+      "id": 107,
+      "question": "What is the difference between SQL and NoSQL databases?",
+      "difficulty": "medium",
+      "modelAnswer": "SQL databases (MySQL, PostgreSQL) are relational, use structured schemas with tables, enforce ACID properties, and excel at complex joins. NoSQL databases (MongoDB, Redis) are non-relational, flexible schema-less stores (document, key-value), and scale horizontally with ease.",
+      "tips": "Compare schema structure, ACID vs BASE consistency, scaling mechanisms, and use cases."
+    },
+    {
+      "id": 108,
+      "question": "What is Cross-Origin Resource Sharing (CORS) and how is it handled?",
+      "difficulty": "hard",
+      "modelAnswer": "CORS is a browser security mechanism using HTTP headers to permit or restrict resources requested from a different origin (domain, protocol, or port). The server responds with Access-Control-Allow-Origin headers and handles preflight OPTIONS requests for non-simple requests.",
+      "tips": "Explain same-origin policy, preflight requests, and server-side configuration headers."
+    },
+    {
+      "id": 109,
+      "question": "What is the difference between == and === in JavaScript?",
+      "difficulty": "easy",
+      "modelAnswer": "== is the loose equality operator that performs type coercion before comparison. === is the strict equality operator that compares both value and type without coercion, returning false if types differ.",
+      "tips": "Give classic examples like '5' == 5 (true) vs '5' === 5 (false)."
+    },
+    {
+      "id": 110,
+      "question": "Explain closures in JavaScript with a practical use case.",
+      "difficulty": "hard",
+      "modelAnswer": "A closure is a function bundled together with references to its surrounding lexical scope. Even when executed outside its lexical environment, it retains access to variables in that scope. Practical use cases include data privacy, factory functions, and memoization.",
+      "tips": "Demonstrate a counter or private variable pattern."
+    },
+    {
+      "id": 111,
+      "question": "What is Responsive Web Design and how are media queries used?",
+      "difficulty": "easy",
+      "modelAnswer": "Responsive Web Design ensures web layouts adapt gracefully to diverse screen sizes. It uses fluid grid layouts, flexible images, and CSS media queries (@media) that apply styling rules based on viewport width, orientation, or resolution.",
+      "tips": "Mention viewport meta tag, mobile-first approach, and CSS flexbox/grid."
+    },
+    {
+      "id": 112,
+      "question": "What is the difference between flexbox and CSS Grid?",
+      "difficulty": "medium",
+      "modelAnswer": "Flexbox is primarily a one-dimensional layout system (row OR column), ideal for distributing space among items in an interface component. CSS Grid is a two-dimensional layout system (rows AND columns), ideal for architecting overall page layout structures.",
+      "tips": "Contrast 1D vs 2D layout models with concrete examples."
+    },
+    {
+      "id": 113,
+      "question": "What is SQL Injection and how do prepared statements prevent it?",
+      "difficulty": "hard",
+      "modelAnswer": "SQL Injection occurs when malicious user input is concatenated directly into a database query string, altering the query logic. Prepared statements prevent this by separating the query structure from user data; inputs are parameterized and treated strictly as literal values, never executable SQL.",
+      "tips": "Contrast string concatenation with PDO parameterized binding."
+    },
+    {
+      "id": 114,
+      "question": "What are Promises and how does async/await improve asynchronous code?",
+      "difficulty": "medium",
+      "modelAnswer": "A Promise represents the eventual completion or failure of an asynchronous operation (pending, fulfilled, rejected). async/await is syntactic sugar over Promises, allowing asynchronous code to be written and read like synchronous code, improving readability and error handling with try/catch.",
+      "tips": "Discuss Promise chaining vs try/catch readability with async/await."
+    },
+    {
+      "id": 115,
+      "question": "What is indexing in a database and how does it improve query performance?",
+      "difficulty": "hard",
+      "modelAnswer": "A database index is a data structure (typically B-Tree or Hash) that allows the database engine to locate records quickly without scanning the entire table. While indexing accelerates SELECT queries dramatically, it incurs overhead on INSERT, UPDATE, and DELETE operations.",
+      "tips": "Explain B-Tree mechanics, search efficiency (O(log n)), and write trade-offs."
+    },
+    {
+      "id": 116,
+      "question": "Technical Question 16: Explain the core architecture and practical implementation of session management vs JWT authentication.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, session management vs JWT authentication is essential for stability and scale. Session-based auth stores session data server-side (in memory or database) with a session ID cookie. JWT stores signed claims inside a token client-side, enabling stateless authentication across distributed microservices.",
+      "tips": "Contrast server memory overhead with token invalidation challenges."
+    },
+    {
+      "id": 117,
+      "question": "Technical Question 17: Explain the core architecture and practical implementation of HTTP/1.1 vs HTTP/2 and multiplexing.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, HTTP/1.1 vs HTTP/2 and multiplexing is essential for stability and scale. HTTP/1.1 suffers from head-of-line blocking and opens multiple TCP connections. HTTP/2 introduces binary framing, request multiplexing over a single TCP connection, header compression (HPACK), and server push.",
+      "tips": "Focus on multiplexing and single TCP connection benefits."
+    },
+    {
+      "id": 118,
+      "question": "Technical Question 18: Explain the core architecture and practical implementation of web caching strategies and Cache-Control headers.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, web caching strategies and Cache-Control headers is essential for stability and scale. Web caching reduces latency and server load. The Cache-Control header directives (max-age, no-cache, no-store, immutable) combined with ETags govern browser and CDN caching lifetimes.",
+      "tips": "Explain max-age, ETag validation, and CDN edge caching."
+    },
+    {
+      "id": 119,
+      "question": "Technical Question 19: Explain the core architecture and practical implementation of WebSocket protocol vs long polling.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, WebSocket protocol vs long polling is essential for stability and scale. WebSockets provide persistent, full-duplex bidirectional communication over a single TCP connection with minimal overhead. Long polling repeatedly opens HTTP requests, incurring substantial header latency.",
+      "tips": "Contrast bidirectional full-duplex sockets with unidirectional HTTP polling."
+    },
+    {
+      "id": 120,
+      "question": "Technical Question 20: Explain the core architecture and practical implementation of frontend performance optimization techniques.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, frontend performance optimization techniques is essential for stability and scale. Optimizations include code splitting, lazy loading images and components, minifying assets, tree shaking, critical CSS inlining, and optimizing Core Web Vitals (LCP, FID, CLS).",
+      "tips": "Highlight measurable performance metrics and asset bundling techniques."
+    },
+    {
+      "id": 121,
+      "question": "Technical Question 21: Explain the core architecture and practical implementation of semantic HTML and accessibility standards.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, semantic HTML and accessibility standards is essential for stability and scale. Semantic HTML elements (header, nav, main, article) provide structural meaning to browsers and assistive technologies like screen readers, improving SEO and compliance with WCAG guidelines.",
+      "tips": "Mention accessibility, screen readers, and SEO."
+    },
+    {
+      "id": 122,
+      "question": "Technical Question 22: Explain the core architecture and practical implementation of CSS specificity and the cascade algorithm.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, CSS specificity and the cascade algorithm is essential for stability and scale. CSS specificity determines which rule takes precedence when multiple selectors target an element. It is calculated based on inline styles (1000), IDs (100), classes/attributes/pseudo-classes (10), and elements/pseudo-elements (1).",
+      "tips": "Explain the specificity calculation order."
+    },
+    {
+      "id": 123,
+      "question": "Technical Question 23: Explain the core architecture and practical implementation of Cross-Site Scripting (XSS) prevention.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, Cross-Site Scripting (XSS) prevention is essential for stability and scale. XSS occurs when malicious scripts are injected into trusted websites. Prevention requires sanitizing and escaping user input, implementing Content Security Policy (CSP), and avoiding unsafe APIs like innerHTML.",
+      "tips": "Distinguish between stored, reflected, and DOM-based XSS."
+    },
+    {
+      "id": 124,
+      "question": "Technical Question 24: Explain the core architecture and practical implementation of Cross-Site Request Forgery (CSRF) tokens.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, Cross-Site Request Forgery (CSRF) tokens is essential for stability and scale. CSRF tricks an authenticated user into executing unwanted actions. It is prevented using anti-CSRF synchronizer tokens validated on state-changing requests and using SameSite cookie attributes.",
+      "tips": "Explain the mechanism of forged requests and token verification."
+    },
+    {
+      "id": 125,
+      "question": "Technical Question 25: Explain the core architecture and practical implementation of database normalization and normal forms.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, database normalization and normal forms is essential for stability and scale. Database normalization organizes tables to reduce data redundancy and eliminate anomalies. 1NF requires atomic values, 2NF eliminates partial dependencies, and 3NF eliminates transitive dependencies.",
+      "tips": "Explain 1NF, 2NF, and 3NF simply."
+    },
+    {
+      "id": 126,
+      "question": "Technical Question 26: Explain the core architecture and practical implementation of session management vs JWT authentication.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, session management vs JWT authentication is essential for stability and scale. Session-based auth stores session data server-side (in memory or database) with a session ID cookie. JWT stores signed claims inside a token client-side, enabling stateless authentication across distributed microservices.",
+      "tips": "Contrast server memory overhead with token invalidation challenges."
+    },
+    {
+      "id": 127,
+      "question": "Technical Question 27: Explain the core architecture and practical implementation of HTTP/1.1 vs HTTP/2 and multiplexing.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, HTTP/1.1 vs HTTP/2 and multiplexing is essential for stability and scale. HTTP/1.1 suffers from head-of-line blocking and opens multiple TCP connections. HTTP/2 introduces binary framing, request multiplexing over a single TCP connection, header compression (HPACK), and server push.",
+      "tips": "Focus on multiplexing and single TCP connection benefits."
+    },
+    {
+      "id": 128,
+      "question": "Technical Question 28: Explain the core architecture and practical implementation of web caching strategies and Cache-Control headers.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, web caching strategies and Cache-Control headers is essential for stability and scale. Web caching reduces latency and server load. The Cache-Control header directives (max-age, no-cache, no-store, immutable) combined with ETags govern browser and CDN caching lifetimes.",
+      "tips": "Explain max-age, ETag validation, and CDN edge caching."
+    },
+    {
+      "id": 129,
+      "question": "Technical Question 29: Explain the core architecture and practical implementation of WebSocket protocol vs long polling.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, WebSocket protocol vs long polling is essential for stability and scale. WebSockets provide persistent, full-duplex bidirectional communication over a single TCP connection with minimal overhead. Long polling repeatedly opens HTTP requests, incurring substantial header latency.",
+      "tips": "Contrast bidirectional full-duplex sockets with unidirectional HTTP polling."
+    },
+    {
+      "id": 130,
+      "question": "Technical Question 30: Explain the core architecture and practical implementation of frontend performance optimization techniques.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, frontend performance optimization techniques is essential for stability and scale. Optimizations include code splitting, lazy loading images and components, minifying assets, tree shaking, critical CSS inlining, and optimizing Core Web Vitals (LCP, FID, CLS).",
+      "tips": "Highlight measurable performance metrics and asset bundling techniques."
+    },
+    {
+      "id": 131,
+      "question": "Technical Question 31: Explain the core architecture and practical implementation of semantic HTML and accessibility standards.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, semantic HTML and accessibility standards is essential for stability and scale. Semantic HTML elements (header, nav, main, article) provide structural meaning to browsers and assistive technologies like screen readers, improving SEO and compliance with WCAG guidelines.",
+      "tips": "Mention accessibility, screen readers, and SEO."
+    },
+    {
+      "id": 132,
+      "question": "Technical Question 32: Explain the core architecture and practical implementation of CSS specificity and the cascade algorithm.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, CSS specificity and the cascade algorithm is essential for stability and scale. CSS specificity determines which rule takes precedence when multiple selectors target an element. It is calculated based on inline styles (1000), IDs (100), classes/attributes/pseudo-classes (10), and elements/pseudo-elements (1).",
+      "tips": "Explain the specificity calculation order."
+    },
+    {
+      "id": 133,
+      "question": "Technical Question 33: Explain the core architecture and practical implementation of Cross-Site Scripting (XSS) prevention.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, Cross-Site Scripting (XSS) prevention is essential for stability and scale. XSS occurs when malicious scripts are injected into trusted websites. Prevention requires sanitizing and escaping user input, implementing Content Security Policy (CSP), and avoiding unsafe APIs like innerHTML.",
+      "tips": "Distinguish between stored, reflected, and DOM-based XSS."
+    },
+    {
+      "id": 134,
+      "question": "Technical Question 34: Explain the core architecture and practical implementation of Cross-Site Request Forgery (CSRF) tokens.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, Cross-Site Request Forgery (CSRF) tokens is essential for stability and scale. CSRF tricks an authenticated user into executing unwanted actions. It is prevented using anti-CSRF synchronizer tokens validated on state-changing requests and using SameSite cookie attributes.",
+      "tips": "Explain the mechanism of forged requests and token verification."
+    },
+    {
+      "id": 135,
+      "question": "Technical Question 35: Explain the core architecture and practical implementation of database normalization and normal forms.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, database normalization and normal forms is essential for stability and scale. Database normalization organizes tables to reduce data redundancy and eliminate anomalies. 1NF requires atomic values, 2NF eliminates partial dependencies, and 3NF eliminates transitive dependencies.",
+      "tips": "Explain 1NF, 2NF, and 3NF simply."
+    },
+    {
+      "id": 136,
+      "question": "Technical Question 36: Explain the core architecture and practical implementation of session management vs JWT authentication.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, session management vs JWT authentication is essential for stability and scale. Session-based auth stores session data server-side (in memory or database) with a session ID cookie. JWT stores signed claims inside a token client-side, enabling stateless authentication across distributed microservices.",
+      "tips": "Contrast server memory overhead with token invalidation challenges."
+    },
+    {
+      "id": 137,
+      "question": "Technical Question 37: Explain the core architecture and practical implementation of HTTP/1.1 vs HTTP/2 and multiplexing.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, HTTP/1.1 vs HTTP/2 and multiplexing is essential for stability and scale. HTTP/1.1 suffers from head-of-line blocking and opens multiple TCP connections. HTTP/2 introduces binary framing, request multiplexing over a single TCP connection, header compression (HPACK), and server push.",
+      "tips": "Focus on multiplexing and single TCP connection benefits."
+    },
+    {
+      "id": 138,
+      "question": "Technical Question 38: Explain the core architecture and practical implementation of web caching strategies and Cache-Control headers.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, web caching strategies and Cache-Control headers is essential for stability and scale. Web caching reduces latency and server load. The Cache-Control header directives (max-age, no-cache, no-store, immutable) combined with ETags govern browser and CDN caching lifetimes.",
+      "tips": "Explain max-age, ETag validation, and CDN edge caching."
+    },
+    {
+      "id": 139,
+      "question": "Technical Question 39: Explain the core architecture and practical implementation of WebSocket protocol vs long polling.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, WebSocket protocol vs long polling is essential for stability and scale. WebSockets provide persistent, full-duplex bidirectional communication over a single TCP connection with minimal overhead. Long polling repeatedly opens HTTP requests, incurring substantial header latency.",
+      "tips": "Contrast bidirectional full-duplex sockets with unidirectional HTTP polling."
+    },
+    {
+      "id": 140,
+      "question": "Technical Question 40: Explain the core architecture and practical implementation of frontend performance optimization techniques.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, frontend performance optimization techniques is essential for stability and scale. Optimizations include code splitting, lazy loading images and components, minifying assets, tree shaking, critical CSS inlining, and optimizing Core Web Vitals (LCP, FID, CLS).",
+      "tips": "Highlight measurable performance metrics and asset bundling techniques."
+    },
+    {
+      "id": 141,
+      "question": "Technical Question 41: Explain the core architecture and practical implementation of semantic HTML and accessibility standards.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, semantic HTML and accessibility standards is essential for stability and scale. Semantic HTML elements (header, nav, main, article) provide structural meaning to browsers and assistive technologies like screen readers, improving SEO and compliance with WCAG guidelines.",
+      "tips": "Mention accessibility, screen readers, and SEO."
+    },
+    {
+      "id": 142,
+      "question": "Technical Question 42: Explain the core architecture and practical implementation of CSS specificity and the cascade algorithm.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, CSS specificity and the cascade algorithm is essential for stability and scale. CSS specificity determines which rule takes precedence when multiple selectors target an element. It is calculated based on inline styles (1000), IDs (100), classes/attributes/pseudo-classes (10), and elements/pseudo-elements (1).",
+      "tips": "Explain the specificity calculation order."
+    },
+    {
+      "id": 143,
+      "question": "Technical Question 43: Explain the core architecture and practical implementation of Cross-Site Scripting (XSS) prevention.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, Cross-Site Scripting (XSS) prevention is essential for stability and scale. XSS occurs when malicious scripts are injected into trusted websites. Prevention requires sanitizing and escaping user input, implementing Content Security Policy (CSP), and avoiding unsafe APIs like innerHTML.",
+      "tips": "Distinguish between stored, reflected, and DOM-based XSS."
+    },
+    {
+      "id": 144,
+      "question": "Technical Question 44: Explain the core architecture and practical implementation of Cross-Site Request Forgery (CSRF) tokens.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, Cross-Site Request Forgery (CSRF) tokens is essential for stability and scale. CSRF tricks an authenticated user into executing unwanted actions. It is prevented using anti-CSRF synchronizer tokens validated on state-changing requests and using SameSite cookie attributes.",
+      "tips": "Explain the mechanism of forged requests and token verification."
+    },
+    {
+      "id": 145,
+      "question": "Technical Question 45: Explain the core architecture and practical implementation of database normalization and normal forms.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, database normalization and normal forms is essential for stability and scale. Database normalization organizes tables to reduce data redundancy and eliminate anomalies. 1NF requires atomic values, 2NF eliminates partial dependencies, and 3NF eliminates transitive dependencies.",
+      "tips": "Explain 1NF, 2NF, and 3NF simply."
+    },
+    {
+      "id": 146,
+      "question": "Technical Question 46: Explain the core architecture and practical implementation of session management vs JWT authentication.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, session management vs JWT authentication is essential for stability and scale. Session-based auth stores session data server-side (in memory or database) with a session ID cookie. JWT stores signed claims inside a token client-side, enabling stateless authentication across distributed microservices.",
+      "tips": "Contrast server memory overhead with token invalidation challenges."
+    },
+    {
+      "id": 147,
+      "question": "Technical Question 47: Explain the core architecture and practical implementation of HTTP/1.1 vs HTTP/2 and multiplexing.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, HTTP/1.1 vs HTTP/2 and multiplexing is essential for stability and scale. HTTP/1.1 suffers from head-of-line blocking and opens multiple TCP connections. HTTP/2 introduces binary framing, request multiplexing over a single TCP connection, header compression (HPACK), and server push.",
+      "tips": "Focus on multiplexing and single TCP connection benefits."
+    },
+    {
+      "id": 148,
+      "question": "Technical Question 48: Explain the core architecture and practical implementation of web caching strategies and Cache-Control headers.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, web caching strategies and Cache-Control headers is essential for stability and scale. Web caching reduces latency and server load. The Cache-Control header directives (max-age, no-cache, no-store, immutable) combined with ETags govern browser and CDN caching lifetimes.",
+      "tips": "Explain max-age, ETag validation, and CDN edge caching."
+    },
+    {
+      "id": 149,
+      "question": "Technical Question 49: Explain the core architecture and practical implementation of WebSocket protocol vs long polling.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, WebSocket protocol vs long polling is essential for stability and scale. WebSockets provide persistent, full-duplex bidirectional communication over a single TCP connection with minimal overhead. Long polling repeatedly opens HTTP requests, incurring substantial header latency.",
+      "tips": "Contrast bidirectional full-duplex sockets with unidirectional HTTP polling."
+    },
+    {
+      "id": 150,
+      "question": "Technical Question 50: Explain the core architecture and practical implementation of frontend performance optimization techniques.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, frontend performance optimization techniques is essential for stability and scale. Optimizations include code splitting, lazy loading images and components, minifying assets, tree shaking, critical CSS inlining, and optimizing Core Web Vitals (LCP, FID, CLS).",
+      "tips": "Highlight measurable performance metrics and asset bundling techniques."
+    },
+    {
+      "id": 151,
+      "question": "Technical Question 51: Explain the core architecture and practical implementation of semantic HTML and accessibility standards.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, semantic HTML and accessibility standards is essential for stability and scale. Semantic HTML elements (header, nav, main, article) provide structural meaning to browsers and assistive technologies like screen readers, improving SEO and compliance with WCAG guidelines.",
+      "tips": "Mention accessibility, screen readers, and SEO."
+    },
+    {
+      "id": 152,
+      "question": "Technical Question 52: Explain the core architecture and practical implementation of CSS specificity and the cascade algorithm.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, CSS specificity and the cascade algorithm is essential for stability and scale. CSS specificity determines which rule takes precedence when multiple selectors target an element. It is calculated based on inline styles (1000), IDs (100), classes/attributes/pseudo-classes (10), and elements/pseudo-elements (1).",
+      "tips": "Explain the specificity calculation order."
+    },
+    {
+      "id": 153,
+      "question": "Technical Question 53: Explain the core architecture and practical implementation of Cross-Site Scripting (XSS) prevention.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, Cross-Site Scripting (XSS) prevention is essential for stability and scale. XSS occurs when malicious scripts are injected into trusted websites. Prevention requires sanitizing and escaping user input, implementing Content Security Policy (CSP), and avoiding unsafe APIs like innerHTML.",
+      "tips": "Distinguish between stored, reflected, and DOM-based XSS."
+    },
+    {
+      "id": 154,
+      "question": "Technical Question 54: Explain the core architecture and practical implementation of Cross-Site Request Forgery (CSRF) tokens.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, Cross-Site Request Forgery (CSRF) tokens is essential for stability and scale. CSRF tricks an authenticated user into executing unwanted actions. It is prevented using anti-CSRF synchronizer tokens validated on state-changing requests and using SameSite cookie attributes.",
+      "tips": "Explain the mechanism of forged requests and token verification."
+    },
+    {
+      "id": 155,
+      "question": "Technical Question 55: Explain the core architecture and practical implementation of database normalization and normal forms.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, database normalization and normal forms is essential for stability and scale. Database normalization organizes tables to reduce data redundancy and eliminate anomalies. 1NF requires atomic values, 2NF eliminates partial dependencies, and 3NF eliminates transitive dependencies.",
+      "tips": "Explain 1NF, 2NF, and 3NF simply."
+    },
+    {
+      "id": 156,
+      "question": "Technical Question 56: Explain the core architecture and practical implementation of session management vs JWT authentication.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, session management vs JWT authentication is essential for stability and scale. Session-based auth stores session data server-side (in memory or database) with a session ID cookie. JWT stores signed claims inside a token client-side, enabling stateless authentication across distributed microservices.",
+      "tips": "Contrast server memory overhead with token invalidation challenges."
+    },
+    {
+      "id": 157,
+      "question": "Technical Question 57: Explain the core architecture and practical implementation of HTTP/1.1 vs HTTP/2 and multiplexing.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, HTTP/1.1 vs HTTP/2 and multiplexing is essential for stability and scale. HTTP/1.1 suffers from head-of-line blocking and opens multiple TCP connections. HTTP/2 introduces binary framing, request multiplexing over a single TCP connection, header compression (HPACK), and server push.",
+      "tips": "Focus on multiplexing and single TCP connection benefits."
+    },
+    {
+      "id": 158,
+      "question": "Technical Question 58: Explain the core architecture and practical implementation of web caching strategies and Cache-Control headers.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, web caching strategies and Cache-Control headers is essential for stability and scale. Web caching reduces latency and server load. The Cache-Control header directives (max-age, no-cache, no-store, immutable) combined with ETags govern browser and CDN caching lifetimes.",
+      "tips": "Explain max-age, ETag validation, and CDN edge caching."
+    },
+    {
+      "id": 159,
+      "question": "Technical Question 59: Explain the core architecture and practical implementation of WebSocket protocol vs long polling.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, WebSocket protocol vs long polling is essential for stability and scale. WebSockets provide persistent, full-duplex bidirectional communication over a single TCP connection with minimal overhead. Long polling repeatedly opens HTTP requests, incurring substantial header latency.",
+      "tips": "Contrast bidirectional full-duplex sockets with unidirectional HTTP polling."
+    },
+    {
+      "id": 160,
+      "question": "Technical Question 60: Explain the core architecture and practical implementation of frontend performance optimization techniques.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, frontend performance optimization techniques is essential for stability and scale. Optimizations include code splitting, lazy loading images and components, minifying assets, tree shaking, critical CSS inlining, and optimizing Core Web Vitals (LCP, FID, CLS).",
+      "tips": "Highlight measurable performance metrics and asset bundling techniques."
+    },
+    {
+      "id": 161,
+      "question": "Technical Question 61: Explain the core architecture and practical implementation of semantic HTML and accessibility standards.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, semantic HTML and accessibility standards is essential for stability and scale. Semantic HTML elements (header, nav, main, article) provide structural meaning to browsers and assistive technologies like screen readers, improving SEO and compliance with WCAG guidelines.",
+      "tips": "Mention accessibility, screen readers, and SEO."
+    },
+    {
+      "id": 162,
+      "question": "Technical Question 62: Explain the core architecture and practical implementation of CSS specificity and the cascade algorithm.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, CSS specificity and the cascade algorithm is essential for stability and scale. CSS specificity determines which rule takes precedence when multiple selectors target an element. It is calculated based on inline styles (1000), IDs (100), classes/attributes/pseudo-classes (10), and elements/pseudo-elements (1).",
+      "tips": "Explain the specificity calculation order."
+    },
+    {
+      "id": 163,
+      "question": "Technical Question 63: Explain the core architecture and practical implementation of Cross-Site Scripting (XSS) prevention.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, Cross-Site Scripting (XSS) prevention is essential for stability and scale. XSS occurs when malicious scripts are injected into trusted websites. Prevention requires sanitizing and escaping user input, implementing Content Security Policy (CSP), and avoiding unsafe APIs like innerHTML.",
+      "tips": "Distinguish between stored, reflected, and DOM-based XSS."
+    },
+    {
+      "id": 164,
+      "question": "Technical Question 64: Explain the core architecture and practical implementation of Cross-Site Request Forgery (CSRF) tokens.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, Cross-Site Request Forgery (CSRF) tokens is essential for stability and scale. CSRF tricks an authenticated user into executing unwanted actions. It is prevented using anti-CSRF synchronizer tokens validated on state-changing requests and using SameSite cookie attributes.",
+      "tips": "Explain the mechanism of forged requests and token verification."
+    },
+    {
+      "id": 165,
+      "question": "Technical Question 65: Explain the core architecture and practical implementation of database normalization and normal forms.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, database normalization and normal forms is essential for stability and scale. Database normalization organizes tables to reduce data redundancy and eliminate anomalies. 1NF requires atomic values, 2NF eliminates partial dependencies, and 3NF eliminates transitive dependencies.",
+      "tips": "Explain 1NF, 2NF, and 3NF simply."
+    },
+    {
+      "id": 166,
+      "question": "Technical Question 66: Explain the core architecture and practical implementation of session management vs JWT authentication.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, session management vs JWT authentication is essential for stability and scale. Session-based auth stores session data server-side (in memory or database) with a session ID cookie. JWT stores signed claims inside a token client-side, enabling stateless authentication across distributed microservices.",
+      "tips": "Contrast server memory overhead with token invalidation challenges."
+    },
+    {
+      "id": 167,
+      "question": "Technical Question 67: Explain the core architecture and practical implementation of HTTP/1.1 vs HTTP/2 and multiplexing.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, HTTP/1.1 vs HTTP/2 and multiplexing is essential for stability and scale. HTTP/1.1 suffers from head-of-line blocking and opens multiple TCP connections. HTTP/2 introduces binary framing, request multiplexing over a single TCP connection, header compression (HPACK), and server push.",
+      "tips": "Focus on multiplexing and single TCP connection benefits."
+    },
+    {
+      "id": 168,
+      "question": "Technical Question 68: Explain the core architecture and practical implementation of web caching strategies and Cache-Control headers.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, web caching strategies and Cache-Control headers is essential for stability and scale. Web caching reduces latency and server load. The Cache-Control header directives (max-age, no-cache, no-store, immutable) combined with ETags govern browser and CDN caching lifetimes.",
+      "tips": "Explain max-age, ETag validation, and CDN edge caching."
+    },
+    {
+      "id": 169,
+      "question": "Technical Question 69: Explain the core architecture and practical implementation of WebSocket protocol vs long polling.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, WebSocket protocol vs long polling is essential for stability and scale. WebSockets provide persistent, full-duplex bidirectional communication over a single TCP connection with minimal overhead. Long polling repeatedly opens HTTP requests, incurring substantial header latency.",
+      "tips": "Contrast bidirectional full-duplex sockets with unidirectional HTTP polling."
+    },
+    {
+      "id": 170,
+      "question": "Technical Question 70: Explain the core architecture and practical implementation of frontend performance optimization techniques.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, frontend performance optimization techniques is essential for stability and scale. Optimizations include code splitting, lazy loading images and components, minifying assets, tree shaking, critical CSS inlining, and optimizing Core Web Vitals (LCP, FID, CLS).",
+      "tips": "Highlight measurable performance metrics and asset bundling techniques."
+    },
+    {
+      "id": 171,
+      "question": "Technical Question 71: Explain the core architecture and practical implementation of semantic HTML and accessibility standards.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, semantic HTML and accessibility standards is essential for stability and scale. Semantic HTML elements (header, nav, main, article) provide structural meaning to browsers and assistive technologies like screen readers, improving SEO and compliance with WCAG guidelines.",
+      "tips": "Mention accessibility, screen readers, and SEO."
+    },
+    {
+      "id": 172,
+      "question": "Technical Question 72: Explain the core architecture and practical implementation of CSS specificity and the cascade algorithm.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, CSS specificity and the cascade algorithm is essential for stability and scale. CSS specificity determines which rule takes precedence when multiple selectors target an element. It is calculated based on inline styles (1000), IDs (100), classes/attributes/pseudo-classes (10), and elements/pseudo-elements (1).",
+      "tips": "Explain the specificity calculation order."
+    },
+    {
+      "id": 173,
+      "question": "Technical Question 73: Explain the core architecture and practical implementation of Cross-Site Scripting (XSS) prevention.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, Cross-Site Scripting (XSS) prevention is essential for stability and scale. XSS occurs when malicious scripts are injected into trusted websites. Prevention requires sanitizing and escaping user input, implementing Content Security Policy (CSP), and avoiding unsafe APIs like innerHTML.",
+      "tips": "Distinguish between stored, reflected, and DOM-based XSS."
+    },
+    {
+      "id": 174,
+      "question": "Technical Question 74: Explain the core architecture and practical implementation of Cross-Site Request Forgery (CSRF) tokens.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, Cross-Site Request Forgery (CSRF) tokens is essential for stability and scale. CSRF tricks an authenticated user into executing unwanted actions. It is prevented using anti-CSRF synchronizer tokens validated on state-changing requests and using SameSite cookie attributes.",
+      "tips": "Explain the mechanism of forged requests and token verification."
+    },
+    {
+      "id": 175,
+      "question": "Technical Question 75: Explain the core architecture and practical implementation of database normalization and normal forms.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, database normalization and normal forms is essential for stability and scale. Database normalization organizes tables to reduce data redundancy and eliminate anomalies. 1NF requires atomic values, 2NF eliminates partial dependencies, and 3NF eliminates transitive dependencies.",
+      "tips": "Explain 1NF, 2NF, and 3NF simply."
+    },
+    {
+      "id": 176,
+      "question": "Technical Question 76: Explain the core architecture and practical implementation of session management vs JWT authentication.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, session management vs JWT authentication is essential for stability and scale. Session-based auth stores session data server-side (in memory or database) with a session ID cookie. JWT stores signed claims inside a token client-side, enabling stateless authentication across distributed microservices.",
+      "tips": "Contrast server memory overhead with token invalidation challenges."
+    },
+    {
+      "id": 177,
+      "question": "Technical Question 77: Explain the core architecture and practical implementation of HTTP/1.1 vs HTTP/2 and multiplexing.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, HTTP/1.1 vs HTTP/2 and multiplexing is essential for stability and scale. HTTP/1.1 suffers from head-of-line blocking and opens multiple TCP connections. HTTP/2 introduces binary framing, request multiplexing over a single TCP connection, header compression (HPACK), and server push.",
+      "tips": "Focus on multiplexing and single TCP connection benefits."
+    },
+    {
+      "id": 178,
+      "question": "Technical Question 78: Explain the core architecture and practical implementation of web caching strategies and Cache-Control headers.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, web caching strategies and Cache-Control headers is essential for stability and scale. Web caching reduces latency and server load. The Cache-Control header directives (max-age, no-cache, no-store, immutable) combined with ETags govern browser and CDN caching lifetimes.",
+      "tips": "Explain max-age, ETag validation, and CDN edge caching."
+    },
+    {
+      "id": 179,
+      "question": "Technical Question 79: Explain the core architecture and practical implementation of WebSocket protocol vs long polling.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, WebSocket protocol vs long polling is essential for stability and scale. WebSockets provide persistent, full-duplex bidirectional communication over a single TCP connection with minimal overhead. Long polling repeatedly opens HTTP requests, incurring substantial header latency.",
+      "tips": "Contrast bidirectional full-duplex sockets with unidirectional HTTP polling."
+    },
+    {
+      "id": 180,
+      "question": "Technical Question 80: Explain the core architecture and practical implementation of frontend performance optimization techniques.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, frontend performance optimization techniques is essential for stability and scale. Optimizations include code splitting, lazy loading images and components, minifying assets, tree shaking, critical CSS inlining, and optimizing Core Web Vitals (LCP, FID, CLS).",
+      "tips": "Highlight measurable performance metrics and asset bundling techniques."
+    },
+    {
+      "id": 181,
+      "question": "Technical Question 81: Explain the core architecture and practical implementation of semantic HTML and accessibility standards.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, semantic HTML and accessibility standards is essential for stability and scale. Semantic HTML elements (header, nav, main, article) provide structural meaning to browsers and assistive technologies like screen readers, improving SEO and compliance with WCAG guidelines.",
+      "tips": "Mention accessibility, screen readers, and SEO."
+    },
+    {
+      "id": 182,
+      "question": "Technical Question 82: Explain the core architecture and practical implementation of CSS specificity and the cascade algorithm.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, CSS specificity and the cascade algorithm is essential for stability and scale. CSS specificity determines which rule takes precedence when multiple selectors target an element. It is calculated based on inline styles (1000), IDs (100), classes/attributes/pseudo-classes (10), and elements/pseudo-elements (1).",
+      "tips": "Explain the specificity calculation order."
+    },
+    {
+      "id": 183,
+      "question": "Technical Question 83: Explain the core architecture and practical implementation of Cross-Site Scripting (XSS) prevention.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, Cross-Site Scripting (XSS) prevention is essential for stability and scale. XSS occurs when malicious scripts are injected into trusted websites. Prevention requires sanitizing and escaping user input, implementing Content Security Policy (CSP), and avoiding unsafe APIs like innerHTML.",
+      "tips": "Distinguish between stored, reflected, and DOM-based XSS."
+    },
+    {
+      "id": 184,
+      "question": "Technical Question 84: Explain the core architecture and practical implementation of Cross-Site Request Forgery (CSRF) tokens.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, Cross-Site Request Forgery (CSRF) tokens is essential for stability and scale. CSRF tricks an authenticated user into executing unwanted actions. It is prevented using anti-CSRF synchronizer tokens validated on state-changing requests and using SameSite cookie attributes.",
+      "tips": "Explain the mechanism of forged requests and token verification."
+    },
+    {
+      "id": 185,
+      "question": "Technical Question 85: Explain the core architecture and practical implementation of database normalization and normal forms.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, database normalization and normal forms is essential for stability and scale. Database normalization organizes tables to reduce data redundancy and eliminate anomalies. 1NF requires atomic values, 2NF eliminates partial dependencies, and 3NF eliminates transitive dependencies.",
+      "tips": "Explain 1NF, 2NF, and 3NF simply."
+    },
+    {
+      "id": 186,
+      "question": "Technical Question 86: Explain the core architecture and practical implementation of session management vs JWT authentication.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, session management vs JWT authentication is essential for stability and scale. Session-based auth stores session data server-side (in memory or database) with a session ID cookie. JWT stores signed claims inside a token client-side, enabling stateless authentication across distributed microservices.",
+      "tips": "Contrast server memory overhead with token invalidation challenges."
+    },
+    {
+      "id": 187,
+      "question": "Technical Question 87: Explain the core architecture and practical implementation of HTTP/1.1 vs HTTP/2 and multiplexing.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, HTTP/1.1 vs HTTP/2 and multiplexing is essential for stability and scale. HTTP/1.1 suffers from head-of-line blocking and opens multiple TCP connections. HTTP/2 introduces binary framing, request multiplexing over a single TCP connection, header compression (HPACK), and server push.",
+      "tips": "Focus on multiplexing and single TCP connection benefits."
+    },
+    {
+      "id": 188,
+      "question": "Technical Question 88: Explain the core architecture and practical implementation of web caching strategies and Cache-Control headers.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, web caching strategies and Cache-Control headers is essential for stability and scale. Web caching reduces latency and server load. The Cache-Control header directives (max-age, no-cache, no-store, immutable) combined with ETags govern browser and CDN caching lifetimes.",
+      "tips": "Explain max-age, ETag validation, and CDN edge caching."
+    },
+    {
+      "id": 189,
+      "question": "Technical Question 89: Explain the core architecture and practical implementation of WebSocket protocol vs long polling.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, WebSocket protocol vs long polling is essential for stability and scale. WebSockets provide persistent, full-duplex bidirectional communication over a single TCP connection with minimal overhead. Long polling repeatedly opens HTTP requests, incurring substantial header latency.",
+      "tips": "Contrast bidirectional full-duplex sockets with unidirectional HTTP polling."
+    },
+    {
+      "id": 190,
+      "question": "Technical Question 90: Explain the core architecture and practical implementation of frontend performance optimization techniques.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, frontend performance optimization techniques is essential for stability and scale. Optimizations include code splitting, lazy loading images and components, minifying assets, tree shaking, critical CSS inlining, and optimizing Core Web Vitals (LCP, FID, CLS).",
+      "tips": "Highlight measurable performance metrics and asset bundling techniques."
+    },
+    {
+      "id": 191,
+      "question": "Technical Question 91: Explain the core architecture and practical implementation of semantic HTML and accessibility standards.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, semantic HTML and accessibility standards is essential for stability and scale. Semantic HTML elements (header, nav, main, article) provide structural meaning to browsers and assistive technologies like screen readers, improving SEO and compliance with WCAG guidelines.",
+      "tips": "Mention accessibility, screen readers, and SEO."
+    },
+    {
+      "id": 192,
+      "question": "Technical Question 92: Explain the core architecture and practical implementation of CSS specificity and the cascade algorithm.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, CSS specificity and the cascade algorithm is essential for stability and scale. CSS specificity determines which rule takes precedence when multiple selectors target an element. It is calculated based on inline styles (1000), IDs (100), classes/attributes/pseudo-classes (10), and elements/pseudo-elements (1).",
+      "tips": "Explain the specificity calculation order."
+    },
+    {
+      "id": 193,
+      "question": "Technical Question 93: Explain the core architecture and practical implementation of Cross-Site Scripting (XSS) prevention.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, Cross-Site Scripting (XSS) prevention is essential for stability and scale. XSS occurs when malicious scripts are injected into trusted websites. Prevention requires sanitizing and escaping user input, implementing Content Security Policy (CSP), and avoiding unsafe APIs like innerHTML.",
+      "tips": "Distinguish between stored, reflected, and DOM-based XSS."
+    },
+    {
+      "id": 194,
+      "question": "Technical Question 94: Explain the core architecture and practical implementation of Cross-Site Request Forgery (CSRF) tokens.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, Cross-Site Request Forgery (CSRF) tokens is essential for stability and scale. CSRF tricks an authenticated user into executing unwanted actions. It is prevented using anti-CSRF synchronizer tokens validated on state-changing requests and using SameSite cookie attributes.",
+      "tips": "Explain the mechanism of forged requests and token verification."
+    },
+    {
+      "id": 195,
+      "question": "Technical Question 95: Explain the core architecture and practical implementation of database normalization and normal forms.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, database normalization and normal forms is essential for stability and scale. Database normalization organizes tables to reduce data redundancy and eliminate anomalies. 1NF requires atomic values, 2NF eliminates partial dependencies, and 3NF eliminates transitive dependencies.",
+      "tips": "Explain 1NF, 2NF, and 3NF simply."
+    },
+    {
+      "id": 196,
+      "question": "Technical Question 96: Explain the core architecture and practical implementation of session management vs JWT authentication.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, session management vs JWT authentication is essential for stability and scale. Session-based auth stores session data server-side (in memory or database) with a session ID cookie. JWT stores signed claims inside a token client-side, enabling stateless authentication across distributed microservices.",
+      "tips": "Contrast server memory overhead with token invalidation challenges."
+    },
+    {
+      "id": 197,
+      "question": "Technical Question 97: Explain the core architecture and practical implementation of HTTP/1.1 vs HTTP/2 and multiplexing.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, HTTP/1.1 vs HTTP/2 and multiplexing is essential for stability and scale. HTTP/1.1 suffers from head-of-line blocking and opens multiple TCP connections. HTTP/2 introduces binary framing, request multiplexing over a single TCP connection, header compression (HPACK), and server push.",
+      "tips": "Focus on multiplexing and single TCP connection benefits."
+    },
+    {
+      "id": 198,
+      "question": "Technical Question 98: Explain the core architecture and practical implementation of web caching strategies and Cache-Control headers.",
+      "difficulty": "medium",
+      "modelAnswer": "In modern web systems, web caching strategies and Cache-Control headers is essential for stability and scale. Web caching reduces latency and server load. The Cache-Control header directives (max-age, no-cache, no-store, immutable) combined with ETags govern browser and CDN caching lifetimes.",
+      "tips": "Explain max-age, ETag validation, and CDN edge caching."
+    },
+    {
+      "id": 199,
+      "question": "Technical Question 99: Explain the core architecture and practical implementation of WebSocket protocol vs long polling.",
+      "difficulty": "hard",
+      "modelAnswer": "In modern web systems, WebSocket protocol vs long polling is essential for stability and scale. WebSockets provide persistent, full-duplex bidirectional communication over a single TCP connection with minimal overhead. Long polling repeatedly opens HTTP requests, incurring substantial header latency.",
+      "tips": "Contrast bidirectional full-duplex sockets with unidirectional HTTP polling."
+    },
+    {
+      "id": 200,
+      "question": "Technical Question 100: Explain the core architecture and practical implementation of frontend performance optimization techniques.",
+      "difficulty": "easy",
+      "modelAnswer": "In modern web systems, frontend performance optimization techniques is essential for stability and scale. Optimizations include code splitting, lazy loading images and components, minifying assets, tree shaking, critical CSS inlining, and optimizing Core Web Vitals (LCP, FID, CLS).",
+      "tips": "Highlight measurable performance metrics and asset bundling techniques."
+    }
+  ],
+  "behavioral": [
+    {
+      "id": 201,
+      "question": "Tell me about a time you faced a difficult technical challenge and how you solved it.",
+      "difficulty": "medium",
+      "modelAnswer": "In our academic database project, queries began timing out as table rows grew into thousands. I investigated the execution plans using EXPLAIN, identified missing composite indexes on foreign keys, and restructured the query joins, reducing query latency by over 80%.",
+      "tips": "Use STAR (Situation, Task, Action, Result) with clear technical metrics."
+    },
+    {
+      "id": 202,
+      "question": "Describe a time you had a disagreement with a team member. How did you resolve it?",
+      "difficulty": "medium",
+      "modelAnswer": "During a hackathon, a teammate wanted to build custom authentication from scratch while I recommended using an established OAuth library to save time. I drafted a pros-and-cons document with time estimates. We agreed on OAuth for MVP, which allowed us to finish core features before the deadline.",
+      "tips": "Focus on objective data, mutual respect, and prioritizing project goals."
+    },
+    {
+      "id": 203,
+      "question": "Tell me about a time you failed to meet a deadline. What happened and what did you learn?",
+      "difficulty": "hard",
+      "modelAnswer": "During a course milestone, I underestimated the complexity of third-party API integration and fell behind schedule. I notified my instructor 48 hours early, presented a working core feature set, and submitted the completed integration two days later. Since then, I build a 20% buffer into all estimation plans.",
+      "tips": "Own the failure directly, highlight proactive communication, and explain what preventive process you established."
+    },
+    {
+      "id": 204,
+      "question": "Describe a situation where you had to adapt quickly to significant change.",
+      "difficulty": "easy",
+      "modelAnswer": "Midway through a semester project, our backend partner had to drop the course for medical reasons. I volunteered to take over backend API development alongside my frontend duties, learned Express.js within three days, and delivered the required endpoints on time.",
+      "tips": "Show adaptability, resilience, and willingness to step up for the team."
+    },
+    {
+      "id": 205,
+      "question": "Tell me about a time you received constructive criticism. How did you handle it?",
+      "difficulty": "easy",
+      "modelAnswer": "During a senior code review, my mentor noted that my commit history was disorganized and lacked automated tests. Rather than feeling defensive, I asked for their recommended Git branching workflow, studied test-driven practices, and adopted strict commit conventions across all subsequent PRs.",
+      "tips": "Demonstrate humility, listening ability, and measurable action taken."
+    },
+    {
+      "id": 206,
+      "question": "Describe a time you demonstrated leadership, even if you were not the formal leader.",
+      "difficulty": "medium",
+      "modelAnswer": "In a collaborative lab assignment, our team was stalled because tasks were ambiguously defined. I proposed a quick standup, created a shared Trello board, broken tasks into distinct tickets with owners, and established a daily integration check, guiding the team to a top grade.",
+      "tips": "Leadership is about facilitating progress and helping others succeed."
+    },
+    {
+      "id": 207,
+      "question": "Tell me about a time you had to deal with an unhappy stakeholder or client.",
+      "difficulty": "hard",
+      "modelAnswer": "In a freelance project, a client was disappointed that a feature was not behaving as expected. I scheduled a video walkthrough, listened without interrupting to identify the root misunderstanding, clarified the scope, and delivered a customized configuration option within 24 hours.",
+      "tips": "Show active listening, professional empathy, and prompt corrective action."
+    },
+    {
+      "id": 208,
+      "question": "Describe a project where you had to balance competing priorities.",
+      "difficulty": "medium",
+      "modelAnswer": "During finals week, I had to prepare for two critical exams while finalizing our semester PBL web project. I created an hourly schedule, automated repetitive deployment scripts to save manual testing hours, and coordinated with my project partner to divide testing duties cleanly.",
+      "tips": "Demonstrate systematic time management and disciplined follow-through."
+    },
+    {
+      "id": 209,
+      "question": "Tell me about a time you noticed a mistake in your work before anyone else did.",
+      "difficulty": "easy",
+      "modelAnswer": "While reviewing my pull request before merging, I realized I had left test API keys hardcoded in an environment configuration file. I immediately revoked the key, rotated credentials, migrated secrets to a local .env file, and added gitignore rules to prevent recurrence.",
+      "tips": "Highlight integrity, attention to detail, and systemic remediation."
+    },
+    {
+      "id": 210,
+      "question": "Describe a situation where you motivated an unmotivated peer.",
+      "difficulty": "medium",
+      "modelAnswer": "A peer on our project was disengaged because they felt overwhelmed by the framework learning curve. I paired with them for two hours to build a working 'Hello World' module together and assigned them a bite-sized component. Gaining momentum restored their confidence and enthusiasm.",
+      "tips": "Show empathy, mentorship, and practical support to build momentum."
+    },
+    {
+      "id": 211,
+      "question": "Behavioral Question 11: Describe a scenario where you demonstrated excellence in handling unexpected production bugs under pressure.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling unexpected production bugs under pressure was vital. When a bug emerged during live presentation, I stayed calm, inspected browser developer logs, identified a missing CORS header, applied a hotfix, and documented the root cause in our post-mortem.",
+      "tips": "Show emotional control and methodical troubleshooting."
+    },
+    {
+      "id": 212,
+      "question": "Behavioral Question 12: Describe a scenario where you demonstrated excellence in collaborating with cross-functional partners.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing collaborating with cross-functional partners was vital. I align early with design and product partners by translating visual wireframes into technical specifications and clarifying constraints before development starts.",
+      "tips": "Emphasize mutual respect and shared terminology."
+    },
+    {
+      "id": 213,
+      "question": "Behavioral Question 13: Describe a scenario where you demonstrated excellence in delivering quality work under tight constraints.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing delivering quality work under tight constraints was vital. When time is constrained, I focus on the critical path: building high-value user flows thoroughly rather than spreading effort thinly over half-finished features.",
+      "tips": "Highlight ruthless prioritization and high craft standards."
+    },
+    {
+      "id": 214,
+      "question": "Behavioral Question 14: Describe a scenario where you demonstrated excellence in admitting a lack of knowledge on a topic.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing admitting a lack of knowledge on a topic was vital. When asked about a framework I hadn't used, I answered honestly that I hadn't worked with it yet, explained related concepts I was proficient in, and outlined how quickly I could get up to speed.",
+      "tips": "Integrity and confidence in learning ability always beat bluffing."
+    },
+    {
+      "id": 215,
+      "question": "Behavioral Question 15: Describe a scenario where you demonstrated excellence in driving consensus among differing opinions.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing driving consensus among differing opinions was vital. I facilitate consensus by steering debates away from opinions toward testable hypotheses and prototype benchmarks that provide objective evidence.",
+      "tips": "Show data-driven decision making and diplomacy."
+    },
+    {
+      "id": 216,
+      "question": "Behavioral Question 16: Describe a scenario where you demonstrated excellence in navigating ambiguous product requirements.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing navigating ambiguous product requirements was vital. I write user stories, sketch flowcharts, and confirm acceptance criteria with stakeholders before implementing complex workflows.",
+      "tips": "Highlight proactive documentation and alignment."
+    },
+    {
+      "id": 217,
+      "question": "Behavioral Question 17: Describe a scenario where you demonstrated excellence in handling a teammate who wasn't pulling their weight.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling a teammate who wasn't pulling their weight was vital. I initiated a private conversation to understand if they were facing personal or technical blockers, offered support on their first task, and agreed on daily check-ins to rebuild accountability.",
+      "tips": "Show compassion combined with healthy boundaries."
+    },
+    {
+      "id": 218,
+      "question": "Behavioral Question 18: Describe a scenario where you demonstrated excellence in learning from a failed experiment.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing learning from a failed experiment was vital. We experimented with an experimental caching library that introduced memory leaks. We reverted to standard HTTP caching, conducted a retrospective, and established benchmarking criteria before adopting new libraries.",
+      "tips": "Frame failure as an empirical learning milestone."
+    },
+    {
+      "id": 219,
+      "question": "Behavioral Question 19: Describe a scenario where you demonstrated excellence in prioritizing security and quality over speed.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing prioritizing security and quality over speed was vital. When pressured to skip input validation to hit a deadline, I explained the severity of injection vulnerabilities to the team lead and demonstrated that implementing parameterized queries took under an hour.",
+      "tips": "Show principled engineering ethics."
+    },
+    {
+      "id": 220,
+      "question": "Behavioral Question 20: Describe a scenario where you demonstrated excellence in celebrating peer achievements.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing celebrating peer achievements was vital. I make a conscious effort to acknowledge team members in public channels whenever they solve tricky bugs or deliver complex features on time.",
+      "tips": "Highlight a supportive team culture."
+    },
+    {
+      "id": 221,
+      "question": "Behavioral Question 21: Describe a scenario where you demonstrated excellence in handling unexpected production bugs under pressure.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling unexpected production bugs under pressure was vital. When a bug emerged during live presentation, I stayed calm, inspected browser developer logs, identified a missing CORS header, applied a hotfix, and documented the root cause in our post-mortem.",
+      "tips": "Show emotional control and methodical troubleshooting."
+    },
+    {
+      "id": 222,
+      "question": "Behavioral Question 22: Describe a scenario where you demonstrated excellence in collaborating with cross-functional partners.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing collaborating with cross-functional partners was vital. I align early with design and product partners by translating visual wireframes into technical specifications and clarifying constraints before development starts.",
+      "tips": "Emphasize mutual respect and shared terminology."
+    },
+    {
+      "id": 223,
+      "question": "Behavioral Question 23: Describe a scenario where you demonstrated excellence in delivering quality work under tight constraints.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing delivering quality work under tight constraints was vital. When time is constrained, I focus on the critical path: building high-value user flows thoroughly rather than spreading effort thinly over half-finished features.",
+      "tips": "Highlight ruthless prioritization and high craft standards."
+    },
+    {
+      "id": 224,
+      "question": "Behavioral Question 24: Describe a scenario where you demonstrated excellence in admitting a lack of knowledge on a topic.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing admitting a lack of knowledge on a topic was vital. When asked about a framework I hadn't used, I answered honestly that I hadn't worked with it yet, explained related concepts I was proficient in, and outlined how quickly I could get up to speed.",
+      "tips": "Integrity and confidence in learning ability always beat bluffing."
+    },
+    {
+      "id": 225,
+      "question": "Behavioral Question 25: Describe a scenario where you demonstrated excellence in driving consensus among differing opinions.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing driving consensus among differing opinions was vital. I facilitate consensus by steering debates away from opinions toward testable hypotheses and prototype benchmarks that provide objective evidence.",
+      "tips": "Show data-driven decision making and diplomacy."
+    },
+    {
+      "id": 226,
+      "question": "Behavioral Question 26: Describe a scenario where you demonstrated excellence in navigating ambiguous product requirements.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing navigating ambiguous product requirements was vital. I write user stories, sketch flowcharts, and confirm acceptance criteria with stakeholders before implementing complex workflows.",
+      "tips": "Highlight proactive documentation and alignment."
+    },
+    {
+      "id": 227,
+      "question": "Behavioral Question 27: Describe a scenario where you demonstrated excellence in handling a teammate who wasn't pulling their weight.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling a teammate who wasn't pulling their weight was vital. I initiated a private conversation to understand if they were facing personal or technical blockers, offered support on their first task, and agreed on daily check-ins to rebuild accountability.",
+      "tips": "Show compassion combined with healthy boundaries."
+    },
+    {
+      "id": 228,
+      "question": "Behavioral Question 28: Describe a scenario where you demonstrated excellence in learning from a failed experiment.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing learning from a failed experiment was vital. We experimented with an experimental caching library that introduced memory leaks. We reverted to standard HTTP caching, conducted a retrospective, and established benchmarking criteria before adopting new libraries.",
+      "tips": "Frame failure as an empirical learning milestone."
+    },
+    {
+      "id": 229,
+      "question": "Behavioral Question 29: Describe a scenario where you demonstrated excellence in prioritizing security and quality over speed.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing prioritizing security and quality over speed was vital. When pressured to skip input validation to hit a deadline, I explained the severity of injection vulnerabilities to the team lead and demonstrated that implementing parameterized queries took under an hour.",
+      "tips": "Show principled engineering ethics."
+    },
+    {
+      "id": 230,
+      "question": "Behavioral Question 30: Describe a scenario where you demonstrated excellence in celebrating peer achievements.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing celebrating peer achievements was vital. I make a conscious effort to acknowledge team members in public channels whenever they solve tricky bugs or deliver complex features on time.",
+      "tips": "Highlight a supportive team culture."
+    },
+    {
+      "id": 231,
+      "question": "Behavioral Question 31: Describe a scenario where you demonstrated excellence in handling unexpected production bugs under pressure.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling unexpected production bugs under pressure was vital. When a bug emerged during live presentation, I stayed calm, inspected browser developer logs, identified a missing CORS header, applied a hotfix, and documented the root cause in our post-mortem.",
+      "tips": "Show emotional control and methodical troubleshooting."
+    },
+    {
+      "id": 232,
+      "question": "Behavioral Question 32: Describe a scenario where you demonstrated excellence in collaborating with cross-functional partners.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing collaborating with cross-functional partners was vital. I align early with design and product partners by translating visual wireframes into technical specifications and clarifying constraints before development starts.",
+      "tips": "Emphasize mutual respect and shared terminology."
+    },
+    {
+      "id": 233,
+      "question": "Behavioral Question 33: Describe a scenario where you demonstrated excellence in delivering quality work under tight constraints.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing delivering quality work under tight constraints was vital. When time is constrained, I focus on the critical path: building high-value user flows thoroughly rather than spreading effort thinly over half-finished features.",
+      "tips": "Highlight ruthless prioritization and high craft standards."
+    },
+    {
+      "id": 234,
+      "question": "Behavioral Question 34: Describe a scenario where you demonstrated excellence in admitting a lack of knowledge on a topic.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing admitting a lack of knowledge on a topic was vital. When asked about a framework I hadn't used, I answered honestly that I hadn't worked with it yet, explained related concepts I was proficient in, and outlined how quickly I could get up to speed.",
+      "tips": "Integrity and confidence in learning ability always beat bluffing."
+    },
+    {
+      "id": 235,
+      "question": "Behavioral Question 35: Describe a scenario where you demonstrated excellence in driving consensus among differing opinions.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing driving consensus among differing opinions was vital. I facilitate consensus by steering debates away from opinions toward testable hypotheses and prototype benchmarks that provide objective evidence.",
+      "tips": "Show data-driven decision making and diplomacy."
+    },
+    {
+      "id": 236,
+      "question": "Behavioral Question 36: Describe a scenario where you demonstrated excellence in navigating ambiguous product requirements.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing navigating ambiguous product requirements was vital. I write user stories, sketch flowcharts, and confirm acceptance criteria with stakeholders before implementing complex workflows.",
+      "tips": "Highlight proactive documentation and alignment."
+    },
+    {
+      "id": 237,
+      "question": "Behavioral Question 37: Describe a scenario where you demonstrated excellence in handling a teammate who wasn't pulling their weight.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling a teammate who wasn't pulling their weight was vital. I initiated a private conversation to understand if they were facing personal or technical blockers, offered support on their first task, and agreed on daily check-ins to rebuild accountability.",
+      "tips": "Show compassion combined with healthy boundaries."
+    },
+    {
+      "id": 238,
+      "question": "Behavioral Question 38: Describe a scenario where you demonstrated excellence in learning from a failed experiment.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing learning from a failed experiment was vital. We experimented with an experimental caching library that introduced memory leaks. We reverted to standard HTTP caching, conducted a retrospective, and established benchmarking criteria before adopting new libraries.",
+      "tips": "Frame failure as an empirical learning milestone."
+    },
+    {
+      "id": 239,
+      "question": "Behavioral Question 39: Describe a scenario where you demonstrated excellence in prioritizing security and quality over speed.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing prioritizing security and quality over speed was vital. When pressured to skip input validation to hit a deadline, I explained the severity of injection vulnerabilities to the team lead and demonstrated that implementing parameterized queries took under an hour.",
+      "tips": "Show principled engineering ethics."
+    },
+    {
+      "id": 240,
+      "question": "Behavioral Question 40: Describe a scenario where you demonstrated excellence in celebrating peer achievements.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing celebrating peer achievements was vital. I make a conscious effort to acknowledge team members in public channels whenever they solve tricky bugs or deliver complex features on time.",
+      "tips": "Highlight a supportive team culture."
+    },
+    {
+      "id": 241,
+      "question": "Behavioral Question 41: Describe a scenario where you demonstrated excellence in handling unexpected production bugs under pressure.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling unexpected production bugs under pressure was vital. When a bug emerged during live presentation, I stayed calm, inspected browser developer logs, identified a missing CORS header, applied a hotfix, and documented the root cause in our post-mortem.",
+      "tips": "Show emotional control and methodical troubleshooting."
+    },
+    {
+      "id": 242,
+      "question": "Behavioral Question 42: Describe a scenario where you demonstrated excellence in collaborating with cross-functional partners.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing collaborating with cross-functional partners was vital. I align early with design and product partners by translating visual wireframes into technical specifications and clarifying constraints before development starts.",
+      "tips": "Emphasize mutual respect and shared terminology."
+    },
+    {
+      "id": 243,
+      "question": "Behavioral Question 43: Describe a scenario where you demonstrated excellence in delivering quality work under tight constraints.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing delivering quality work under tight constraints was vital. When time is constrained, I focus on the critical path: building high-value user flows thoroughly rather than spreading effort thinly over half-finished features.",
+      "tips": "Highlight ruthless prioritization and high craft standards."
+    },
+    {
+      "id": 244,
+      "question": "Behavioral Question 44: Describe a scenario where you demonstrated excellence in admitting a lack of knowledge on a topic.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing admitting a lack of knowledge on a topic was vital. When asked about a framework I hadn't used, I answered honestly that I hadn't worked with it yet, explained related concepts I was proficient in, and outlined how quickly I could get up to speed.",
+      "tips": "Integrity and confidence in learning ability always beat bluffing."
+    },
+    {
+      "id": 245,
+      "question": "Behavioral Question 45: Describe a scenario where you demonstrated excellence in driving consensus among differing opinions.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing driving consensus among differing opinions was vital. I facilitate consensus by steering debates away from opinions toward testable hypotheses and prototype benchmarks that provide objective evidence.",
+      "tips": "Show data-driven decision making and diplomacy."
+    },
+    {
+      "id": 246,
+      "question": "Behavioral Question 46: Describe a scenario where you demonstrated excellence in navigating ambiguous product requirements.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing navigating ambiguous product requirements was vital. I write user stories, sketch flowcharts, and confirm acceptance criteria with stakeholders before implementing complex workflows.",
+      "tips": "Highlight proactive documentation and alignment."
+    },
+    {
+      "id": 247,
+      "question": "Behavioral Question 47: Describe a scenario where you demonstrated excellence in handling a teammate who wasn't pulling their weight.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling a teammate who wasn't pulling their weight was vital. I initiated a private conversation to understand if they were facing personal or technical blockers, offered support on their first task, and agreed on daily check-ins to rebuild accountability.",
+      "tips": "Show compassion combined with healthy boundaries."
+    },
+    {
+      "id": 248,
+      "question": "Behavioral Question 48: Describe a scenario where you demonstrated excellence in learning from a failed experiment.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing learning from a failed experiment was vital. We experimented with an experimental caching library that introduced memory leaks. We reverted to standard HTTP caching, conducted a retrospective, and established benchmarking criteria before adopting new libraries.",
+      "tips": "Frame failure as an empirical learning milestone."
+    },
+    {
+      "id": 249,
+      "question": "Behavioral Question 49: Describe a scenario where you demonstrated excellence in prioritizing security and quality over speed.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing prioritizing security and quality over speed was vital. When pressured to skip input validation to hit a deadline, I explained the severity of injection vulnerabilities to the team lead and demonstrated that implementing parameterized queries took under an hour.",
+      "tips": "Show principled engineering ethics."
+    },
+    {
+      "id": 250,
+      "question": "Behavioral Question 50: Describe a scenario where you demonstrated excellence in celebrating peer achievements.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing celebrating peer achievements was vital. I make a conscious effort to acknowledge team members in public channels whenever they solve tricky bugs or deliver complex features on time.",
+      "tips": "Highlight a supportive team culture."
+    },
+    {
+      "id": 251,
+      "question": "Behavioral Question 51: Describe a scenario where you demonstrated excellence in handling unexpected production bugs under pressure.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling unexpected production bugs under pressure was vital. When a bug emerged during live presentation, I stayed calm, inspected browser developer logs, identified a missing CORS header, applied a hotfix, and documented the root cause in our post-mortem.",
+      "tips": "Show emotional control and methodical troubleshooting."
+    },
+    {
+      "id": 252,
+      "question": "Behavioral Question 52: Describe a scenario where you demonstrated excellence in collaborating with cross-functional partners.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing collaborating with cross-functional partners was vital. I align early with design and product partners by translating visual wireframes into technical specifications and clarifying constraints before development starts.",
+      "tips": "Emphasize mutual respect and shared terminology."
+    },
+    {
+      "id": 253,
+      "question": "Behavioral Question 53: Describe a scenario where you demonstrated excellence in delivering quality work under tight constraints.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing delivering quality work under tight constraints was vital. When time is constrained, I focus on the critical path: building high-value user flows thoroughly rather than spreading effort thinly over half-finished features.",
+      "tips": "Highlight ruthless prioritization and high craft standards."
+    },
+    {
+      "id": 254,
+      "question": "Behavioral Question 54: Describe a scenario where you demonstrated excellence in admitting a lack of knowledge on a topic.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing admitting a lack of knowledge on a topic was vital. When asked about a framework I hadn't used, I answered honestly that I hadn't worked with it yet, explained related concepts I was proficient in, and outlined how quickly I could get up to speed.",
+      "tips": "Integrity and confidence in learning ability always beat bluffing."
+    },
+    {
+      "id": 255,
+      "question": "Behavioral Question 55: Describe a scenario where you demonstrated excellence in driving consensus among differing opinions.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing driving consensus among differing opinions was vital. I facilitate consensus by steering debates away from opinions toward testable hypotheses and prototype benchmarks that provide objective evidence.",
+      "tips": "Show data-driven decision making and diplomacy."
+    },
+    {
+      "id": 256,
+      "question": "Behavioral Question 56: Describe a scenario where you demonstrated excellence in navigating ambiguous product requirements.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing navigating ambiguous product requirements was vital. I write user stories, sketch flowcharts, and confirm acceptance criteria with stakeholders before implementing complex workflows.",
+      "tips": "Highlight proactive documentation and alignment."
+    },
+    {
+      "id": 257,
+      "question": "Behavioral Question 57: Describe a scenario where you demonstrated excellence in handling a teammate who wasn't pulling their weight.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling a teammate who wasn't pulling their weight was vital. I initiated a private conversation to understand if they were facing personal or technical blockers, offered support on their first task, and agreed on daily check-ins to rebuild accountability.",
+      "tips": "Show compassion combined with healthy boundaries."
+    },
+    {
+      "id": 258,
+      "question": "Behavioral Question 58: Describe a scenario where you demonstrated excellence in learning from a failed experiment.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing learning from a failed experiment was vital. We experimented with an experimental caching library that introduced memory leaks. We reverted to standard HTTP caching, conducted a retrospective, and established benchmarking criteria before adopting new libraries.",
+      "tips": "Frame failure as an empirical learning milestone."
+    },
+    {
+      "id": 259,
+      "question": "Behavioral Question 59: Describe a scenario where you demonstrated excellence in prioritizing security and quality over speed.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing prioritizing security and quality over speed was vital. When pressured to skip input validation to hit a deadline, I explained the severity of injection vulnerabilities to the team lead and demonstrated that implementing parameterized queries took under an hour.",
+      "tips": "Show principled engineering ethics."
+    },
+    {
+      "id": 260,
+      "question": "Behavioral Question 60: Describe a scenario where you demonstrated excellence in celebrating peer achievements.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing celebrating peer achievements was vital. I make a conscious effort to acknowledge team members in public channels whenever they solve tricky bugs or deliver complex features on time.",
+      "tips": "Highlight a supportive team culture."
+    },
+    {
+      "id": 261,
+      "question": "Behavioral Question 61: Describe a scenario where you demonstrated excellence in handling unexpected production bugs under pressure.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling unexpected production bugs under pressure was vital. When a bug emerged during live presentation, I stayed calm, inspected browser developer logs, identified a missing CORS header, applied a hotfix, and documented the root cause in our post-mortem.",
+      "tips": "Show emotional control and methodical troubleshooting."
+    },
+    {
+      "id": 262,
+      "question": "Behavioral Question 62: Describe a scenario where you demonstrated excellence in collaborating with cross-functional partners.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing collaborating with cross-functional partners was vital. I align early with design and product partners by translating visual wireframes into technical specifications and clarifying constraints before development starts.",
+      "tips": "Emphasize mutual respect and shared terminology."
+    },
+    {
+      "id": 263,
+      "question": "Behavioral Question 63: Describe a scenario where you demonstrated excellence in delivering quality work under tight constraints.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing delivering quality work under tight constraints was vital. When time is constrained, I focus on the critical path: building high-value user flows thoroughly rather than spreading effort thinly over half-finished features.",
+      "tips": "Highlight ruthless prioritization and high craft standards."
+    },
+    {
+      "id": 264,
+      "question": "Behavioral Question 64: Describe a scenario where you demonstrated excellence in admitting a lack of knowledge on a topic.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing admitting a lack of knowledge on a topic was vital. When asked about a framework I hadn't used, I answered honestly that I hadn't worked with it yet, explained related concepts I was proficient in, and outlined how quickly I could get up to speed.",
+      "tips": "Integrity and confidence in learning ability always beat bluffing."
+    },
+    {
+      "id": 265,
+      "question": "Behavioral Question 65: Describe a scenario where you demonstrated excellence in driving consensus among differing opinions.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing driving consensus among differing opinions was vital. I facilitate consensus by steering debates away from opinions toward testable hypotheses and prototype benchmarks that provide objective evidence.",
+      "tips": "Show data-driven decision making and diplomacy."
+    },
+    {
+      "id": 266,
+      "question": "Behavioral Question 66: Describe a scenario where you demonstrated excellence in navigating ambiguous product requirements.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing navigating ambiguous product requirements was vital. I write user stories, sketch flowcharts, and confirm acceptance criteria with stakeholders before implementing complex workflows.",
+      "tips": "Highlight proactive documentation and alignment."
+    },
+    {
+      "id": 267,
+      "question": "Behavioral Question 67: Describe a scenario where you demonstrated excellence in handling a teammate who wasn't pulling their weight.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling a teammate who wasn't pulling their weight was vital. I initiated a private conversation to understand if they were facing personal or technical blockers, offered support on their first task, and agreed on daily check-ins to rebuild accountability.",
+      "tips": "Show compassion combined with healthy boundaries."
+    },
+    {
+      "id": 268,
+      "question": "Behavioral Question 68: Describe a scenario where you demonstrated excellence in learning from a failed experiment.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing learning from a failed experiment was vital. We experimented with an experimental caching library that introduced memory leaks. We reverted to standard HTTP caching, conducted a retrospective, and established benchmarking criteria before adopting new libraries.",
+      "tips": "Frame failure as an empirical learning milestone."
+    },
+    {
+      "id": 269,
+      "question": "Behavioral Question 69: Describe a scenario where you demonstrated excellence in prioritizing security and quality over speed.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing prioritizing security and quality over speed was vital. When pressured to skip input validation to hit a deadline, I explained the severity of injection vulnerabilities to the team lead and demonstrated that implementing parameterized queries took under an hour.",
+      "tips": "Show principled engineering ethics."
+    },
+    {
+      "id": 270,
+      "question": "Behavioral Question 70: Describe a scenario where you demonstrated excellence in celebrating peer achievements.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing celebrating peer achievements was vital. I make a conscious effort to acknowledge team members in public channels whenever they solve tricky bugs or deliver complex features on time.",
+      "tips": "Highlight a supportive team culture."
+    },
+    {
+      "id": 271,
+      "question": "Behavioral Question 71: Describe a scenario where you demonstrated excellence in handling unexpected production bugs under pressure.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling unexpected production bugs under pressure was vital. When a bug emerged during live presentation, I stayed calm, inspected browser developer logs, identified a missing CORS header, applied a hotfix, and documented the root cause in our post-mortem.",
+      "tips": "Show emotional control and methodical troubleshooting."
+    },
+    {
+      "id": 272,
+      "question": "Behavioral Question 72: Describe a scenario where you demonstrated excellence in collaborating with cross-functional partners.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing collaborating with cross-functional partners was vital. I align early with design and product partners by translating visual wireframes into technical specifications and clarifying constraints before development starts.",
+      "tips": "Emphasize mutual respect and shared terminology."
+    },
+    {
+      "id": 273,
+      "question": "Behavioral Question 73: Describe a scenario where you demonstrated excellence in delivering quality work under tight constraints.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing delivering quality work under tight constraints was vital. When time is constrained, I focus on the critical path: building high-value user flows thoroughly rather than spreading effort thinly over half-finished features.",
+      "tips": "Highlight ruthless prioritization and high craft standards."
+    },
+    {
+      "id": 274,
+      "question": "Behavioral Question 74: Describe a scenario where you demonstrated excellence in admitting a lack of knowledge on a topic.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing admitting a lack of knowledge on a topic was vital. When asked about a framework I hadn't used, I answered honestly that I hadn't worked with it yet, explained related concepts I was proficient in, and outlined how quickly I could get up to speed.",
+      "tips": "Integrity and confidence in learning ability always beat bluffing."
+    },
+    {
+      "id": 275,
+      "question": "Behavioral Question 75: Describe a scenario where you demonstrated excellence in driving consensus among differing opinions.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing driving consensus among differing opinions was vital. I facilitate consensus by steering debates away from opinions toward testable hypotheses and prototype benchmarks that provide objective evidence.",
+      "tips": "Show data-driven decision making and diplomacy."
+    },
+    {
+      "id": 276,
+      "question": "Behavioral Question 76: Describe a scenario where you demonstrated excellence in navigating ambiguous product requirements.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing navigating ambiguous product requirements was vital. I write user stories, sketch flowcharts, and confirm acceptance criteria with stakeholders before implementing complex workflows.",
+      "tips": "Highlight proactive documentation and alignment."
+    },
+    {
+      "id": 277,
+      "question": "Behavioral Question 77: Describe a scenario where you demonstrated excellence in handling a teammate who wasn't pulling their weight.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling a teammate who wasn't pulling their weight was vital. I initiated a private conversation to understand if they were facing personal or technical blockers, offered support on their first task, and agreed on daily check-ins to rebuild accountability.",
+      "tips": "Show compassion combined with healthy boundaries."
+    },
+    {
+      "id": 278,
+      "question": "Behavioral Question 78: Describe a scenario where you demonstrated excellence in learning from a failed experiment.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing learning from a failed experiment was vital. We experimented with an experimental caching library that introduced memory leaks. We reverted to standard HTTP caching, conducted a retrospective, and established benchmarking criteria before adopting new libraries.",
+      "tips": "Frame failure as an empirical learning milestone."
+    },
+    {
+      "id": 279,
+      "question": "Behavioral Question 79: Describe a scenario where you demonstrated excellence in prioritizing security and quality over speed.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing prioritizing security and quality over speed was vital. When pressured to skip input validation to hit a deadline, I explained the severity of injection vulnerabilities to the team lead and demonstrated that implementing parameterized queries took under an hour.",
+      "tips": "Show principled engineering ethics."
+    },
+    {
+      "id": 280,
+      "question": "Behavioral Question 80: Describe a scenario where you demonstrated excellence in celebrating peer achievements.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing celebrating peer achievements was vital. I make a conscious effort to acknowledge team members in public channels whenever they solve tricky bugs or deliver complex features on time.",
+      "tips": "Highlight a supportive team culture."
+    },
+    {
+      "id": 281,
+      "question": "Behavioral Question 81: Describe a scenario where you demonstrated excellence in handling unexpected production bugs under pressure.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling unexpected production bugs under pressure was vital. When a bug emerged during live presentation, I stayed calm, inspected browser developer logs, identified a missing CORS header, applied a hotfix, and documented the root cause in our post-mortem.",
+      "tips": "Show emotional control and methodical troubleshooting."
+    },
+    {
+      "id": 282,
+      "question": "Behavioral Question 82: Describe a scenario where you demonstrated excellence in collaborating with cross-functional partners.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing collaborating with cross-functional partners was vital. I align early with design and product partners by translating visual wireframes into technical specifications and clarifying constraints before development starts.",
+      "tips": "Emphasize mutual respect and shared terminology."
+    },
+    {
+      "id": 283,
+      "question": "Behavioral Question 83: Describe a scenario where you demonstrated excellence in delivering quality work under tight constraints.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing delivering quality work under tight constraints was vital. When time is constrained, I focus on the critical path: building high-value user flows thoroughly rather than spreading effort thinly over half-finished features.",
+      "tips": "Highlight ruthless prioritization and high craft standards."
+    },
+    {
+      "id": 284,
+      "question": "Behavioral Question 84: Describe a scenario where you demonstrated excellence in admitting a lack of knowledge on a topic.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing admitting a lack of knowledge on a topic was vital. When asked about a framework I hadn't used, I answered honestly that I hadn't worked with it yet, explained related concepts I was proficient in, and outlined how quickly I could get up to speed.",
+      "tips": "Integrity and confidence in learning ability always beat bluffing."
+    },
+    {
+      "id": 285,
+      "question": "Behavioral Question 85: Describe a scenario where you demonstrated excellence in driving consensus among differing opinions.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing driving consensus among differing opinions was vital. I facilitate consensus by steering debates away from opinions toward testable hypotheses and prototype benchmarks that provide objective evidence.",
+      "tips": "Show data-driven decision making and diplomacy."
+    },
+    {
+      "id": 286,
+      "question": "Behavioral Question 86: Describe a scenario where you demonstrated excellence in navigating ambiguous product requirements.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing navigating ambiguous product requirements was vital. I write user stories, sketch flowcharts, and confirm acceptance criteria with stakeholders before implementing complex workflows.",
+      "tips": "Highlight proactive documentation and alignment."
+    },
+    {
+      "id": 287,
+      "question": "Behavioral Question 87: Describe a scenario where you demonstrated excellence in handling a teammate who wasn't pulling their weight.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling a teammate who wasn't pulling their weight was vital. I initiated a private conversation to understand if they were facing personal or technical blockers, offered support on their first task, and agreed on daily check-ins to rebuild accountability.",
+      "tips": "Show compassion combined with healthy boundaries."
+    },
+    {
+      "id": 288,
+      "question": "Behavioral Question 88: Describe a scenario where you demonstrated excellence in learning from a failed experiment.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing learning from a failed experiment was vital. We experimented with an experimental caching library that introduced memory leaks. We reverted to standard HTTP caching, conducted a retrospective, and established benchmarking criteria before adopting new libraries.",
+      "tips": "Frame failure as an empirical learning milestone."
+    },
+    {
+      "id": 289,
+      "question": "Behavioral Question 89: Describe a scenario where you demonstrated excellence in prioritizing security and quality over speed.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing prioritizing security and quality over speed was vital. When pressured to skip input validation to hit a deadline, I explained the severity of injection vulnerabilities to the team lead and demonstrated that implementing parameterized queries took under an hour.",
+      "tips": "Show principled engineering ethics."
+    },
+    {
+      "id": 290,
+      "question": "Behavioral Question 90: Describe a scenario where you demonstrated excellence in celebrating peer achievements.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing celebrating peer achievements was vital. I make a conscious effort to acknowledge team members in public channels whenever they solve tricky bugs or deliver complex features on time.",
+      "tips": "Highlight a supportive team culture."
+    },
+    {
+      "id": 291,
+      "question": "Behavioral Question 91: Describe a scenario where you demonstrated excellence in handling unexpected production bugs under pressure.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling unexpected production bugs under pressure was vital. When a bug emerged during live presentation, I stayed calm, inspected browser developer logs, identified a missing CORS header, applied a hotfix, and documented the root cause in our post-mortem.",
+      "tips": "Show emotional control and methodical troubleshooting."
+    },
+    {
+      "id": 292,
+      "question": "Behavioral Question 92: Describe a scenario where you demonstrated excellence in collaborating with cross-functional partners.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing collaborating with cross-functional partners was vital. I align early with design and product partners by translating visual wireframes into technical specifications and clarifying constraints before development starts.",
+      "tips": "Emphasize mutual respect and shared terminology."
+    },
+    {
+      "id": 293,
+      "question": "Behavioral Question 93: Describe a scenario where you demonstrated excellence in delivering quality work under tight constraints.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing delivering quality work under tight constraints was vital. When time is constrained, I focus on the critical path: building high-value user flows thoroughly rather than spreading effort thinly over half-finished features.",
+      "tips": "Highlight ruthless prioritization and high craft standards."
+    },
+    {
+      "id": 294,
+      "question": "Behavioral Question 94: Describe a scenario where you demonstrated excellence in admitting a lack of knowledge on a topic.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing admitting a lack of knowledge on a topic was vital. When asked about a framework I hadn't used, I answered honestly that I hadn't worked with it yet, explained related concepts I was proficient in, and outlined how quickly I could get up to speed.",
+      "tips": "Integrity and confidence in learning ability always beat bluffing."
+    },
+    {
+      "id": 295,
+      "question": "Behavioral Question 95: Describe a scenario where you demonstrated excellence in driving consensus among differing opinions.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing driving consensus among differing opinions was vital. I facilitate consensus by steering debates away from opinions toward testable hypotheses and prototype benchmarks that provide objective evidence.",
+      "tips": "Show data-driven decision making and diplomacy."
+    },
+    {
+      "id": 296,
+      "question": "Behavioral Question 96: Describe a scenario where you demonstrated excellence in navigating ambiguous product requirements.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing navigating ambiguous product requirements was vital. I write user stories, sketch flowcharts, and confirm acceptance criteria with stakeholders before implementing complex workflows.",
+      "tips": "Highlight proactive documentation and alignment."
+    },
+    {
+      "id": 297,
+      "question": "Behavioral Question 97: Describe a scenario where you demonstrated excellence in handling a teammate who wasn't pulling their weight.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing handling a teammate who wasn't pulling their weight was vital. I initiated a private conversation to understand if they were facing personal or technical blockers, offered support on their first task, and agreed on daily check-ins to rebuild accountability.",
+      "tips": "Show compassion combined with healthy boundaries."
+    },
+    {
+      "id": 298,
+      "question": "Behavioral Question 98: Describe a scenario where you demonstrated excellence in learning from a failed experiment.",
+      "difficulty": "medium",
+      "modelAnswer": "In a project demanding high collaboration, addressing learning from a failed experiment was vital. We experimented with an experimental caching library that introduced memory leaks. We reverted to standard HTTP caching, conducted a retrospective, and established benchmarking criteria before adopting new libraries.",
+      "tips": "Frame failure as an empirical learning milestone."
+    },
+    {
+      "id": 299,
+      "question": "Behavioral Question 99: Describe a scenario where you demonstrated excellence in prioritizing security and quality over speed.",
+      "difficulty": "hard",
+      "modelAnswer": "In a project demanding high collaboration, addressing prioritizing security and quality over speed was vital. When pressured to skip input validation to hit a deadline, I explained the severity of injection vulnerabilities to the team lead and demonstrated that implementing parameterized queries took under an hour.",
+      "tips": "Show principled engineering ethics."
+    },
+    {
+      "id": 300,
+      "question": "Behavioral Question 100: Describe a scenario where you demonstrated excellence in celebrating peer achievements.",
+      "difficulty": "easy",
+      "modelAnswer": "In a project demanding high collaboration, addressing celebrating peer achievements was vital. I make a conscious effort to acknowledge team members in public channels whenever they solve tricky bugs or deliver complex features on time.",
+      "tips": "Highlight a supportive team culture."
+    }
+  ]
 };

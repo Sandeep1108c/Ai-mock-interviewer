@@ -1,4 +1,5 @@
-api/config.php
+api/config.local.php
 .env
 *.log
 Thumbs.db
+.DS_Store
