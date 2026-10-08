@@ -104,8 +104,8 @@ if ($action === 'login') {
         jsonResponse(['success' => false, 'message' => 'Username and password are required.'], 400);
     }
 
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :u OR email = :u LIMIT 1");
-    $stmt->execute([':u' => $username]);
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :u OR email = :e LIMIT 1");
+    $stmt->execute([':u' => $username, ':e' => $username]);
     $user = $stmt->fetch();
 
     if (!$user || !password_verify($password, $user['password_hash'])) {

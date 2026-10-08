@@ -113,7 +113,7 @@ function handleAuthLogin(e) {
         btn.disabled = false;
         btn.textContent = 'Sign In';
         alertBox.className = 'auth-alert error';
-        alertBox.textContent = 'Network error. Please make sure XAMPP Apache is running.';
+        alertBox.textContent = 'Network or server error. Please check your connection and try again.';
     });
 }
 
@@ -161,7 +161,7 @@ function handleAuthRegister(e) {
         btn.disabled = false;
         btn.textContent = 'Create Account';
         alertBox.className = 'auth-alert error';
-        alertBox.textContent = 'Network error. Please make sure XAMPP Apache is running.';
+        alertBox.textContent = 'Network or server error. Please check your connection and try again.';
     });
 }
 
@@ -858,7 +858,7 @@ function initHistoryPage() {
         .catch(function(err) {
             container.innerHTML = 
                 '<div style="text-align: center; color: var(--danger); padding: 30px;">' +
-                    'Error loading history from database. Make sure XAMPP Apache & MySQL are running.' +
+                    'Unable to load history from database. Please check your connection and try again.' +
                 '</div>';
         });
 }
